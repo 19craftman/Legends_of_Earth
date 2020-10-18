@@ -8,7 +8,7 @@ public class DeathCountDown : MonoBehaviour
     public float totalTime;
     public float increaseTimeBy;
     public float remainingTime;
-
+    private Rigidbody2D rb;
     public Image countDownBar;
     public string deathtag;
     private string time;
@@ -17,6 +17,7 @@ public class DeathCountDown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody2D>();
         time = GetComponent<PlayerInput>().time;
         countDownBar = GameObject.FindGameObjectWithTag(deathtag).GetComponent<Image>();
         CountDown.Count += decreaseTime;
@@ -81,7 +82,7 @@ public class DeathCountDown : MonoBehaviour
 
     void decreaseTime(float time)
     {
-        if(!hold)
+        if(!hold&& Mathf.Abs(rb.velocity.x) > 0)
         {
             remainingTime -= time;
             
