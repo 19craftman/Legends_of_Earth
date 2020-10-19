@@ -8,11 +8,9 @@ public class LazerFiring : MonoBehaviour
     // public List<GameObject> laserprep = new List<GameObject>();
     // public List<GameObject> lasersFire = new List<GameObject>();
     public GameObject[] lasers;
-    public GameObject[] laserprep;
-    public GameObject[] lasersFire;
+    private LaserController[] laserControllers;
     public GameObject[] laserstop;
-    public GameObject[] laserpreptop;
-    public GameObject[] lasersFiretop;
+    private LaserController[] laserTopControllers;
     private float timer = 6;
     private float diffiulty = 0;
     private float count;
@@ -23,32 +21,27 @@ public class LazerFiring : MonoBehaviour
     void Start()
     {
         lasers = GameObject.FindGameObjectsWithTag("Laser");
-        laserprep = GameObject.FindGameObjectsWithTag("PrepLaser");
-        lasersFire = GameObject.FindGameObjectsWithTag("Fire");
         laserstop = GameObject.FindGameObjectsWithTag("LaserTop");
-        laserpreptop = GameObject.FindGameObjectsWithTag("PrepLaserTop");
-        lasersFiretop = GameObject.FindGameObjectsWithTag("FireTop");
-        for (int i = 0; i < lasersFire.Length; i++)
+
+        laserControllers = new LaserController[lasers.Length];
+        laserTopControllers = new LaserController[laserstop.Length];
+
+        for (int i = 0; i < lasers.Length; i++)
         {
-            lasersFire[i].SetActive(false);
+            laserControllers[i] = lasers[i].GetComponent<LaserController>();
+            laserControllers[i].off();
         }
-        for (int i = 0; i < laserprep.Length; i++)
+
+        for (int i = 0; i < laserstop.Length; i++)
         {
-            laserprep[i].SetActive(false);
-        }
-        for (int i = 0; i < lasersFiretop.Length; i++)
-        {
-            lasersFiretop[i].SetActive(false);
-        }
-        for (int i = 0; i < laserpreptop.Length; i++)
-        {
-            laserpreptop[i].SetActive(false);
+            laserTopControllers[i] = laserstop[i].GetComponent<LaserController>();
+            laserTopControllers[i].off();
         }
     }
     // Update is called once per frame
     void Update()
     {
-        
+
         count = Mathf.Round(1 + (diffiulty / 2));
         counttop = Mathf.Round(1 + (diffiulty / 2));
         if (count > lasers.Length - 1)
@@ -66,48 +59,42 @@ public class LazerFiring : MonoBehaviour
         else if (timer <= 0)
         {
 
-           // Debug.Log("Hello");
+            // Debug.Log("Hello");
             //StartCoroutine(Prep());
-           // StartCoroutine(Fire());
-           // lasersFire[rand].SetActive(false);
-
+            // StartCoroutine(Fire());
+            // lasersFire[rand].SetActive(false);
 
             for (int i = 0; i < count; i++)
             {
-             rand = Random.Range(0, lasers.Length);
-                StartCoroutine(Prep(rand,laserprep,lasersFire));
-
-
+                rand = Random.Range(0, lasers.Length);
+                StartCoroutine(Prep(rand, laserControllers));
             }
             for (int i = 0; i < counttop; i++)
             {
-                rand = Random.Range(0, laserstop.Length);
-                StartCoroutine(Prep(rand, laserpreptop, lasersFiretop));
-
-
+                rand = Random.Range(0, laserTopControllers.Length);
+                StartCoroutine(Prep(rand, laserTopControllers));
             }
+
             timer = 6;
         }
-      
 
-}
-    IEnumerator Prep(int rand,GameObject[] arr, GameObject[] arr2)
-       
-    {
-    
-        arr[rand].SetActive(true);
-        yield return new WaitForSeconds(4.7f);
-        arr[rand].SetActive(false);
-        arr2[rand].SetActive(true);
-        yield return new WaitForSeconds(1);
-        arr2[rand].SetActive(false);
-        diffiulty = diffiulty +.1f; 
-        //StartCoroutine(Fire(rand,arr,arr2));
+
     }
+    IEnumerator Prep(int rand, LaserController[] arr)
+    {
+        arr[rand].prep();
+        yield return new WaitForSeconds(4.7f);
+        arr[rand].fire();
+        yield return new WaitForSeconds(1);
+        arr[rand].off();
+        diffiulty = diffiulty + .1f;
+    }
+
+    //StartCoroutine(Fire(rand,arr,arr2));
     IEnumerator Fire(int rand, GameObject[] arr, GameObject[] arr2)
 
     {
-    
+
         arr[rand].SetActive(false);
         arr2[rand].SetActive(true);
         yield return new WaitForSeconds(1);
@@ -115,4 +102,3 @@ public class LazerFiring : MonoBehaviour
         diffiulty++;
     }
 }
-

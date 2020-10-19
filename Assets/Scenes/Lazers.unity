@@ -132,8 +132,8 @@ GameObject:
   - component: {fileID: 62459716}
   - component: {fileID: 62459715}
   - component: {fileID: 62459714}
-  - component: {fileID: 62459717}
   - component: {fileID: 62459718}
+  - component: {fileID: 62459719}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -206,24 +206,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &62459717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62459713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7efdb954f7f2d4d9090f33224331bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lasers: []
-  laserprep: []
-  lasersFire: []
-  laserstop: []
-  laserpreptop: []
-  lasersFiretop: []
 --- !u!114 &62459718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +218,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8bf465ff15936b4f80d984e352c3fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &62459719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62459713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5278c90650e7a40a20c30e6a474024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lasers: []
+  laserstop: []
 --- !u!1 &153534913
 GameObject:
   m_ObjectHideFlags: 0
@@ -5635,6 +5631,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481926424918117975, guid: 0488bf84770232243a261485681851c8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0488bf84770232243a261485681851c8, type: 3}
