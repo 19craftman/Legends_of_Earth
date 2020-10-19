@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPlayer : MonoBehaviour
+public class RelocatePlayer : MonoBehaviour
 {
+    public Vector2[] positions;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +17,12 @@ public class SpawnPlayer : MonoBehaviour
         
     }
 
-    public void Spawn()
+    public void Move()
     {
-        Debug.Log(1);
-        for(int i=0; i<AddPlayers.players.Count; i++)
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        for(int i=0; i<players.Length; i++)
         {
-            Debug.Log(2);
-            GameObject a = Instantiate(AddPlayers.players[i]);
-            GetComponent<RelocatePlayer>().Move();
+            players[i].transform.position = positions[i];
         }
     }
 }

@@ -16,12 +16,23 @@ public class MoveInAir : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         if (isGrounded() != true)
         {
             rb.velocity = new Vector2(Input.GetAxisRaw(horizontal) * speed, rb.velocity.y);
+            if(rb.velocity.x <0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (rb.velocity.x > 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
         }
     }
 

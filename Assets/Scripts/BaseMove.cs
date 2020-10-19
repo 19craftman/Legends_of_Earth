@@ -15,15 +15,14 @@ public class BaseMove : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         rb.velocity = new Vector2(Input.GetAxisRaw(horizontal) * speed * rb.gravityScale, rb.velocity.y);
         if (rb.velocity.x < 0)
         {
-            GetComponent<SpriteRenderer>().flipX = true; 
+            GetComponent<SpriteRenderer>().flipX = true;
         }
-        else if(rb.velocity.x >0)
+        else if (rb.velocity.x > 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }

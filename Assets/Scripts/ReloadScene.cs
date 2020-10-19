@@ -19,4 +19,14 @@ public class ReloadScene : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Lazers");
+    }
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Instructions");
+    }
 }

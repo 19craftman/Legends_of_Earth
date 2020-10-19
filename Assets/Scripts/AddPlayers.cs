@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameStart : MonoBehaviour
+public class AddPlayers : MonoBehaviour
 {
     public int playerCount;
     public static List<GameObject> players = new List<GameObject>();
     public GameObject[] prefabs;
     public List<int> chosen = new List<int>();
 
+    
 
-    bool start;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +19,8 @@ public class GameStart : MonoBehaviour
         playerCount = 0;
         addPlayer();
         addPlayer();
-
-        //Time.timeScale = 0;
+        Debug.Log(players.Count);
+        ////Time.timeScale = 0;
         GetComponent<SpawnPlayer>().Spawn();
         GetComponent<ApplyModifier>().Apply(UnityEngine.Random.Range(0, 3));
     }

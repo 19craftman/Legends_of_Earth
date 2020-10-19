@@ -16,18 +16,16 @@ public class BaseJump : MonoBehaviour
         Debug.Log(jump);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
         Debug.Log(isGrounded());
         Debug.Log(Input.GetAxisRaw(jump));
         Debug.DrawRay(transform.position, Vector2.down, Color.green, gameObject.transform.localScale.y + .1f);
-        if (isGrounded()&& Input.GetAxisRaw(jump) == 1)
+        if (isGrounded() && Input.GetAxisRaw(jump) == 1)
         {
-            
-            rb.velocity = new Vector2(rb.velocity.x, 0); 
-            rb.AddForce(new Vector2(0,360));
+
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(new Vector2(0, 360));
         }
     }
 

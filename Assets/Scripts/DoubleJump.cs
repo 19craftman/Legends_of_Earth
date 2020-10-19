@@ -28,28 +28,30 @@ public class DoubleJump : MonoBehaviour
             HasDouble = true;
         }
         //Debug.DrawRay(transform.position, Vector2.down, Color.green, gameObject.transform.localScale.y + .1f);
-       if (Input.GetAxisRaw(jump) == 1 && !HasJumped)
-        {
-            if (isGrounded())
-            {
-                HasJumped = true;
-                Debug.Log(1);
-                rb.velocity = new Vector2(rb.velocity.x, 0);
-                rb.AddForce(new Vector2(0, Input.GetAxisRaw(jump) *300));
-            }
-            else if (HasDouble == true)
-            {
-                HasJumped = true;
-                Debug.Log(2);
-                rb.velocity = new Vector2(rb.velocity.x, 0);
-                rb.AddForce(new Vector2(0, Input.GetAxisRaw(jump) * 300));
-                HasDouble = false;
-            }
-       }
 
        if(Input.GetAxisRaw(jump) == 0)
         {
             HasJumped = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetAxisRaw(jump) == 1 && !HasJumped)
+        {
+            if (isGrounded())
+            {
+                HasJumped = true;
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.AddForce(new Vector2(0, Input.GetAxisRaw(jump) * 360));
+            }
+            else if (HasDouble == true)
+            {
+                HasJumped = true;
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.AddForce(new Vector2(0, Input.GetAxisRaw(jump) * 360));
+                HasDouble = false;
+            }
         }
     }
 

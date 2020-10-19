@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class TutorialStart : MonoBehaviour
 {
-    float speed = 6;
-    public Rigidbody2D rb;
+    public static int modifier;
     // Start is called before the first frame update
     void Start()
     {
-
+        modifier = Random.Range(0, 3);
+        GetComponent<SpawnPlayer>().Spawn();
+        GetComponent<ApplyModifier>().Apply(modifier);
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(Input.GetAxisRaw("J1Horizontal") * speed * rb.gravityScale, rb.velocity.y);
-
+        
     }
-
-
 }
