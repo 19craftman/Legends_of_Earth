@@ -17,6 +17,7 @@ public class BaseMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(Input.GetAxisRaw(horizontal));
         rb.velocity = new Vector2(Input.GetAxisRaw(horizontal) * speed * rb.gravityScale, rb.velocity.y);
         if (rb.velocity.x < 0)
         {
