@@ -17,7 +17,18 @@ public class BaseMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(Input.GetAxisRaw(horizontal) * speed * rb.gravityScale, rb.velocity.y);
+        float horizontalInput = Input.GetAxis(horizontal);
+        float xSpeed = rb.velocity.x;
+        if (horizontalInput != 0)
+        {
+            xSpeed += horizontalInput * speed;
+            xSpeed = Mathf.Clamp(xSpeed, -speed, speed);
+        }
+        else if (xSpeed != 0)
+            xSpeed = 0;
+
+        rb.velocity = new Vector2(xSpeed, rb.velocity.y);
+
         if (rb.velocity.x < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
