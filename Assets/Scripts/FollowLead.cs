@@ -12,7 +12,7 @@ public class FollowLead : MonoBehaviour
     public Vector3 target_Offset;
     private GameObject[] players;
     private int index;
-
+    
     private void Start()
     {
         target_Offset = new Vector3(transform.position.x - target.position.x, transform.position.y, transform.position.z);
@@ -32,10 +32,8 @@ public class FollowLead : MonoBehaviour
                 }
             }
         }
-
-        if (target)
-        {
-            transform.position = Vector3.Lerp(transform.position, players[index].transform.position + target_Offset, 0.1f);
-        }
+    
+        transform.position = Vector3.Lerp(transform.position, new Vector3(players[index].transform.position.x, 0) + target_Offset, 0.1f);
+   
     }
 }

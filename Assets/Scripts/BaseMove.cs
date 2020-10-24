@@ -28,7 +28,7 @@ public class BaseMove : MonoBehaviour
             xSpeed = 0;
 
         rb.velocity = new Vector2(xSpeed, rb.velocity.y);
-
+       
         if (rb.velocity.x < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
