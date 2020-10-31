@@ -61,7 +61,7 @@ public class ModInstructions : MonoBehaviour
         }
         if (Count == 6)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 }

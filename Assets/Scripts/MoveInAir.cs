@@ -6,9 +6,16 @@ using UnityEngine;
 public class MoveInAir : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float speed = 4;
+    private float speed = 6;
    // public LayerMask Ground;
     private string horizontal;
+
+    int verticleRays = 5;
+    float marginX = .05f;
+    float marginY = .05f;
+    Rect box;
+
+    bool grounded = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +25,28 @@ public class MoveInAir : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isGrounded() != true)
+        box = new Rect(
+            GetComponent<BoxCollider2D>().bounds.min.x,
+            GetComponent<BoxCollider2D>().bounds.min.y,
+            GetComponent<BoxCollider2D>().bounds.size.x,
+            GetComponent<BoxCollider2D>().bounds.size.y
+            );
+
+        if (grounded != true)
         {
-            rb.velocity = new Vector2(Input.GetAxisRaw(horizontal) * speed, rb.velocity.y);
-            if(rb.velocity.x <0)
+            float horizontalInput = Input.GetAxis(horizontal);
+            float xSpeed = rb.velocity.x;
+            if (horizontalInput != 0)
+            {
+                xSpeed += horizontalInput * speed;
+                xSpeed = Mathf.Clamp(xSpeed, -speed, speed);
+            }
+            else if (xSpeed != 0)
+                xSpeed = 0;
+
+            rb.velocity = new Vector2(xSpeed, rb.velocity.y);
+
+            if (rb.velocity.x < 0)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
             }
@@ -32,20 +57,36 @@ public class MoveInAir : MonoBehaviour
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
+
+        grounded = isGrounded();
     }
 
     bool isGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, gameObject.transform.localScale.y + .1f, 256);
-        if (hit.collider != null)
+        Vector2 startPoint = new Vector2(box.xMin + marginX, box.center.y);
+        Vector2 endPoint = new Vector2(box.xMax - marginX, box.center.y);
+
+        RaycastHit2D hitInfo;
+
+        float distance = box.height / 2 + (grounded ? marginY : Mathf.Max(Mathf.Abs(rb.velocity.y * Time.deltaTime), marginY));
+
+
+        for (int i = 0; i < verticleRays; i++)
         {
-            return true;
+            float lerpAmount = (float)i / (float)(verticleRays - 1);
+            Vector3 origin = Vector2.Lerp(startPoint, endPoint, lerpAmount);
+            //Debug.Log(distance);
+
+            hitInfo = Physics2D.Raycast(origin, Vector2.down, distance, 256);
+
+            if (hitInfo.collider != null)
+            {
+                return true;
+            }
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
     }
 }

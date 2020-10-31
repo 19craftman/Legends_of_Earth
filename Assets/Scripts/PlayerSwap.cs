@@ -60,4 +60,9 @@ public class PlayerSwap : MonoBehaviour
             timeRemaining = totalTime;
         }
     }
+
+    private void OnDestroy()
+    {
+        CountDown.Count -= countDown;
+    }
 }

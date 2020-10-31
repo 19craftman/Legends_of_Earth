@@ -101,4 +101,9 @@ public class DeathCountDown : MonoBehaviour
             remainingTime = totalTime;
         }
     }
+
+    private void OnDestroy()
+    {
+        CountDown.Count -= decreaseTime;
+    }
 }

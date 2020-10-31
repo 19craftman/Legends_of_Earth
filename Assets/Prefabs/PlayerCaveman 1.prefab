@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 7204942223323974974}
   - component: {fileID: 5744996136488065375}
   - component: {fileID: 7601371090487005229}
+  - component: {fileID: -2537202284669665180}
   m_Layer: 9
   m_Name: PlayerCaveman 1
   m_TagString: Player
@@ -202,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e0924a734155e4d9bb71874f7f5ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 6
 --- !u!114 &2860788412709727787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,9 +213,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8763459112878233187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65375e079dc816149bc59232d3159483, type: 3}
+  m_Script: {fileID: 11500000, guid: 4681d2275f735884f862444bfef5cfb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxJump: -1
+  velocity: {x: 0, y: 0}
+  testY: 0
+  counterA: 0
+  counterB: 0
 --- !u!114 &7204942223323974974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +253,7 @@ MonoBehaviour:
   horizontal: J2Horizontal
   jump: P2Jump
   time: P2Time
-  name: Caveman
+  character: Caveman
 --- !u!61 &7601371090487005229
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -274,3 +280,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7933674, y: 1.7256813}
   m_EdgeRadius: 0.01
+--- !u!114 &-2537202284669665180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763459112878233187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91b6243e2595e940bf49ac12aefaef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
