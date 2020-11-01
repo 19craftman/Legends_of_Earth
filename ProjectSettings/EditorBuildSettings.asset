@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 75903ad11dde8994a816807a1987f02c
+  - enabled: 1
     path: Assets/Scenes/Instructions.unity
     guid: 336597ecb0c679c42ad0b624031d0281
   - enabled: 1
     path: Assets/Scenes/Lazers.unity
     guid: d92c5bb9602fb3f4aa7b8f013ab519aa
+  - enabled: 1
+    path: Assets/Scenes/ObsCourse.unity
+    guid: 4567ea94b91795542beeadd0a8d508c7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: eba90714d102bf141829273764931788,
       type: 2}

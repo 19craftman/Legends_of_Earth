@@ -11,11 +11,14 @@ public class LazerFiring : MonoBehaviour
     private LaserController[] laserControllers;
     public GameObject[] laserstop;
     private LaserController[] laserTopControllers;
-    private float timer = 6;
+    private float timer = 5;
     private float diffiulty = 0;
     private float count;
     private float counttop;
     private int rand;
+    private int previous;
+    private int previoustop;
+    private float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +44,8 @@ public class LazerFiring : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(speed);
+        speed = 5 - (diffiulty / 2);
         count = Mathf.Round(1 + (diffiulty / 2));
         counttop = Mathf.Round(1 + (diffiulty / 2));
         if (count > lasers.Length - 1)
@@ -51,6 +55,11 @@ public class LazerFiring : MonoBehaviour
         if (counttop > laserstop.Length - 1)
         {
             counttop = laserstop.Length - 1;
+        }
+        if (speed <= 3.5)
+        {
+            speed = 3.6f;
+
         }
         if (timer > 0)
         {
@@ -67,27 +76,40 @@ public class LazerFiring : MonoBehaviour
             for (int i = 0; i < count; i++)
             {
                 rand = Random.Range(0, lasers.Length);
+
+
                 StartCoroutine(Prep(rand, laserControllers));
+
+
+
             }
             for (int i = 0; i < counttop; i++)
             {
                 rand = Random.Range(0, laserTopControllers.Length);
+
+
                 StartCoroutine(Prep(rand, laserTopControllers));
+
+
+
             }
 
-            timer = 6;
+            timer = speed;
         }
 
 
     }
     IEnumerator Prep(int rand, LaserController[] arr)
     {
+
         arr[rand].prep();
-        yield return new WaitForSeconds(4.7f);
+        yield return new WaitForSeconds(2);
         arr[rand].fire();
         yield return new WaitForSeconds(1);
         arr[rand].off();
         diffiulty = diffiulty + .1f;
+        Debug.Log(speed);
+
     }
 
     //StartCoroutine(Fire(rand,arr,arr2));

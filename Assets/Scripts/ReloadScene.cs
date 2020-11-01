@@ -16,6 +16,7 @@ public class ReloadScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
@@ -27,6 +28,6 @@ public class ReloadScene : MonoBehaviour
 
     public void Tutorial()
     {
-        SceneManager.LoadScene("Instructions");
+        SceneManager.LoadScene("MainMenu");
     }
 }
