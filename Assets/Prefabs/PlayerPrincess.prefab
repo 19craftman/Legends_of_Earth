@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 7204942223323974974}
   - component: {fileID: 5744996136488065375}
   - component: {fileID: 6449108772452204482}
+  - component: {fileID: 2860788412709727787}
+  - component: {fileID: 8935117787843558908}
   m_Layer: 9
   m_Name: PlayerPrincess
   m_TagString: Player
@@ -229,23 +231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
---- !u!114 &2860788412709727787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8763459112878233187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4681d2275f735884f862444bfef5cfb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxJump: -1
-  velocity: {x: 0, y: 0}
-  testY: 0
-  counterA: 0
-  counterB: 0
 --- !u!114 &7204942223323974974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +264,7 @@ MonoBehaviour:
   jump: P1Jump
   time: P1Time
   character: Princess
+  PlayerID: 0
 --- !u!114 &6449108772452204482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +274,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 8763459112878233187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f91b6243e2595e940bf49ac12aefaef4, type: 3}
+  m_Script: {fileID: 11500000, guid: 92e18a99ecd856541bbaa7888713c825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2860788412709727787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763459112878233187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4681d2275f735884f862444bfef5cfb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxJump: -1
+  jumpForce: 2.35
+  velocity: {x: 0, y: 0}
+  jumping: 0
+  testY: 0
+  counterA: 0
+  counterB: 0
+--- !u!114 &8935117787843558908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763459112878233187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73823d40b86934649a30044a7447dfc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisplayText: {fileID: 0}
+  CurrentPosition: {x: 0, y: 0}

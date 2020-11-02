@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 //using TMPro.EditorUtilities;
 using UnityEngine;
+using Rewired;
 
 public class DoubleJump : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DoubleJump : MonoBehaviour
     float jumpForce = 2.35f;
     float jumpForceOrigin = 2.35f;
     float yLimit = 3f;
+ 
 
     Rect box;
 
@@ -30,21 +32,26 @@ public class DoubleJump : MonoBehaviour
     private string jump;
 
 
-    int doubleJump;
+    public int doubleJump;
 
     //testing
     public float testY;
     public int counterA;
     public int counterB;
+    [SerializeField] private Player player;
+    private int PlayerIDNew;
     void Start()
     {
-        jump = GetComponent<PlayerInput>().jump;
+        PlayerIDNew = GetComponent<PlayerInput>().PlayerID;
+        player = ReInput.players.GetPlayer(PlayerIDNew);
+        //jump = GetComponent<PlayerInput>().jump;
         rb = gameObject.GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
     }
 
     private void FixedUpdate()
     {
+        
         velocity = rb.velocity;
         box = new Rect(
             GetComponent<BoxCollider2D>().bounds.min.x,
@@ -79,7 +86,7 @@ public class DoubleJump : MonoBehaviour
             {
                 falling = false;
                 rb.velocity = new Vector2(rb.velocity.x, 0f);
-                if (Input.GetAxisRaw(jump) == 0)
+                if (player.GetAxisRaw("Jump") == 0)
                 {
                     jumping = false;
                     doubleJump = 2;
@@ -89,9 +96,10 @@ public class DoubleJump : MonoBehaviour
 
         }
 
-        if (((grounded && !jumping)||doubleJump==1) && Input.GetAxisRaw(jump) == 1)
+        if (((grounded && !jumping)||doubleJump==1) && player.GetAxisRaw("Jump") > 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, 0f);
+            if(!grounded)
+rb.velocity = new Vector2(rb.velocity.x, 0f);
             maxJump = 5.85f;
             jumpForce = jumpForceOrigin;
             counterA = 0;
@@ -107,7 +115,7 @@ public class DoubleJump : MonoBehaviour
         }
         else if (jumpForce == jumpForceOrigin && jumping)
         {
-            if (Input.GetAxisRaw(jump) == 0)
+            if (player.GetAxisRaw("Jump") == 0)
             {
                 doubleJump--;
                 jumpForce *= 2f;

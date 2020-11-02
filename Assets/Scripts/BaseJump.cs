@@ -4,13 +4,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class BaseJump : MonoBehaviour
 {
     float gravity = .5f;
     float maxFall = -30f;
     public float maxJump =-1f;
-    float jumpForce = 2.35f;
+    public float jumpForce = 2.35f;
     float jumpForceOrigin = 2.35f;
     float yLimit = 3f;
 
@@ -25,7 +26,7 @@ public class BaseJump : MonoBehaviour
     float marginX = .05f;
     float marginY = .05f;
 
-    private bool jumping;
+    public bool jumping;
 
     private Rigidbody2D rb;
    // public LayerMask Ground;
@@ -36,9 +37,14 @@ public class BaseJump : MonoBehaviour
     public float testY;
     public int counterA;
     public int counterB;
+
+    [SerializeField] private Player player;
+    private int PlayerIDNew;
     void Start()
     {
-        jump = GetComponent<PlayerInput>().jump;
+        PlayerIDNew = GetComponent<PlayerInput>().PlayerID;
+        player = ReInput.players.GetPlayer(PlayerIDNew);
+        //jump = GetComponent<PlayerInput>().jump;
         rb = gameObject.GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
     }
@@ -50,6 +56,7 @@ public class BaseJump : MonoBehaviour
     }
     private void FixedUpdate()
     {
+       // testY=player.GetAxisRaw("Jump");
         velocity = rb.velocity;
         box = new Rect(
             GetComponent<BoxCollider2D>().bounds.min.x,
@@ -87,7 +94,7 @@ public class BaseJump : MonoBehaviour
             {
                 falling = false;
                 rb.velocity = new Vector2(rb.velocity.x, 0f);
-                if (Input.GetAxisRaw(jump) == 0)
+                if (player.GetAxisRaw("Jump") == 0)
                 {
                     jumping = false;
                     jumpForce = jumpForceOrigin;
@@ -98,22 +105,21 @@ public class BaseJump : MonoBehaviour
 
         }
 
-        if (grounded && !jumping && Input.GetAxisRaw(jump) == 1)
+        if (grounded && !jumping && player.GetAxisRaw("Jump") > 0)
         {
             
             counterA = 0;
             counterB = 0;
             jumping = true;
-            testY = 0f;
         }
-        else if(jumpForce==jumpForceOrigin && jumping)
-        {
-            if(Input.GetAxisRaw(jump) == 0)
-            {
-                jumpForce *= 2f;
-            }
+//        else if(jumpForce==jumpForceOrigin && jumping)
+//        {
+ //           if(player.GetAxisRaw("Jump") == 0)
+ //           {
+//                jumpForce *= 2f;
+//            }
                 
-        }
+//        }
         
 
         if(jumping && maxJump>0)
@@ -128,19 +134,10 @@ public class BaseJump : MonoBehaviour
             {
                 maxJump -= jumpForce;
             }
-            if (yVelocity > testY)
-                testY = yVelocity;
             
             rb.velocity = new Vector2(rb.velocity.x, yVelocity);
         }
-
-        if ( Input.GetAxisRaw(jump) == 1)
-        {
-            rb.AddForce(Vector2.up * Mathf.Max(maxJump, 0f));
-
-            if (maxJump > 0)
-                maxJump -= jumpForce;
-        }
+        
 
     }
 

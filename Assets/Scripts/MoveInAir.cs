@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class MoveInAir : MonoBehaviour
 {
@@ -16,10 +17,14 @@ public class MoveInAir : MonoBehaviour
     Rect box;
 
     bool grounded = false;
+    [SerializeField] private Player player;
+    private int PlayerIDNew;
     // Start is called before the first frame update
     void Start()
     {
-        horizontal = GetComponent<PlayerInput>().horizontal;
+        PlayerIDNew = GetComponent<PlayerInput>().PlayerID;
+        player = ReInput.players.GetPlayer(PlayerIDNew);
+        // horizontal = GetComponent<PlayerInput>().horizontal;
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -34,7 +39,7 @@ public class MoveInAir : MonoBehaviour
 
         if (grounded != true)
         {
-            float horizontalInput = Input.GetAxis(horizontal);
+            float horizontalInput = player.GetAxis("horizontal");
             float xSpeed = rb.velocity.x;
             if (horizontalInput != 0)
             {

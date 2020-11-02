@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Rewired;
 
 public class DeathCountDown : MonoBehaviour
 {
@@ -13,32 +14,70 @@ public class DeathCountDown : MonoBehaviour
     public string deathtag;
     private string time;
 
+    Rect box;
+
+    private Vector2 position;
+
+    bool grounded = false;
+    bool falling = false;
+
+    int verticleRays = 5;
+    float marginX = .05f;
+    float marginY = .05f;
+
     bool hold = false;
+    [SerializeField] private Player player;
+    private int PlayerIDNew;
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        time = GetComponent<PlayerInput>().time;
+        //time = GetComponent<PlayerInput>().time;
         countDownBar = GameObject.FindGameObjectWithTag(deathtag).GetComponent<Image>();
         CountDown.Count += decreaseTime;
         remainingTime = totalTime;
+        PlayerIDNew = GetComponent<PlayerInput>().PlayerID;
+        player = ReInput.players.GetPlayer(PlayerIDNew);
     }
 
     // Update is called once per frame
     void Update()
     {
-        countDownBar.fillAmount = remainingTime / totalTime;
-        if(remainingTime<=0f)
+        box = new Rect(
+            GetComponent<BoxCollider2D>().bounds.min.x,
+            GetComponent<BoxCollider2D>().bounds.min.y,
+            GetComponent<BoxCollider2D>().bounds.size.x,
+            GetComponent<BoxCollider2D>().bounds.size.y
+            );
+
+        if (rb.velocity.y < 0)
         {
-            
+            falling = true;
+        }
+
+
+        if (grounded || falling)
+        {
+            grounded = isGrounded();
+            if (grounded)
+            {
+                falling = false;
+            }
+
+        }
+
+        countDownBar.fillAmount = remainingTime / totalTime;
+        if (remainingTime <= 0f)
+        {
+
             //kill player
             gameObject.SetActive(false);
         }
-        if (gameObject.GetComponent<Rigidbody2D>().velocity == Vector2.zero && Input.GetAxisRaw(time) ==1)
+        if (!hold && grounded && gameObject.GetComponent<Rigidbody2D>().velocity == Vector2.zero && player.GetAxis("Recharge") >= .1)
         {
-            if(remainingTime<totalTime)
+            if (remainingTime < totalTime)
             {
-                increaseTime();
+                position = transform.position;
                 if (gameObject.GetComponent<BaseMove>() != null)
                 {
                     gameObject.GetComponent<BaseMove>().enabled = false;
@@ -58,7 +97,7 @@ public class DeathCountDown : MonoBehaviour
                 hold = true;
             }
         }
-        else if(hold && Input.GetAxisRaw(time) == 0 && remainingTime==totalTime)
+        else if (hold && player.GetAxis("Recharge") == 0 && remainingTime == totalTime)
         {
             hold = false;
             if (gameObject.GetComponent<BaseMove>() != null)
@@ -78,23 +117,29 @@ public class DeathCountDown : MonoBehaviour
                 gameObject.GetComponent<DoubleJump>().enabled = true;
             }
         }
+
+        if (hold)
+        {
+            increaseTime();
+            transform.position = position;
+        }
     }
 
     void decreaseTime(float time)
     {
-        if(!hold&& Mathf.Abs(rb.velocity.x) > 0)
+        if (!hold && Mathf.Abs(rb.velocity.x) > 0)
         {
             remainingTime -= time;
-            
+
         }
-        
+
     }
 
-    void increaseTime()
+    public void increaseTime()
     {
-        if(remainingTime+increaseTimeBy < totalTime)
+        if (remainingTime + increaseTimeBy < totalTime)
         {
-            remainingTime+=increaseTimeBy;
+            remainingTime += increaseTimeBy;
         }
         else
         {
@@ -105,5 +150,32 @@ public class DeathCountDown : MonoBehaviour
     private void OnDestroy()
     {
         CountDown.Count -= decreaseTime;
+    }
+
+    bool isGrounded()
+    {
+        Vector2 startPoint = new Vector2(box.xMin + marginX, box.center.y);
+        Vector2 endPoint = new Vector2(box.xMax - marginX, box.center.y);
+
+        RaycastHit2D hitInfo;
+
+        float distance = box.height / 2 + (grounded ? marginY : Mathf.Max(Mathf.Abs(rb.velocity.y * Time.deltaTime), marginY));
+
+
+        for (int i = 0; i < verticleRays; i++)
+        {
+            float lerpAmount = (float)i / (float)(verticleRays - 1);
+            Vector3 origin = Vector2.Lerp(startPoint, endPoint, lerpAmount);
+            //Debug.Log(distance);
+
+            hitInfo = Physics2D.Raycast(origin, Vector2.down, distance, 256);
+
+            if (hitInfo.collider != null)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

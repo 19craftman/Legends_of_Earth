@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Rewired;
 
 public class WinState : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class WinState : MonoBehaviour
 
     public GameObject winScreen;
     public GameObject drawScreen;
-    public TextMeshProUGUI winnerName;
+    public TextMeshProUGUI MainText;
+    public TextMeshProUGUI state;
+    public Button restartgame;
 
     private int count;
     private int winner;
@@ -19,6 +22,7 @@ public class WinState : MonoBehaviour
     void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
+      
     }
 
     // Update is called once per frame
@@ -36,12 +40,26 @@ public class WinState : MonoBehaviour
         if (count == 1)
         {
             winScreen.SetActive(true);
-            winnerName.text = players[winner].GetComponent<PlayerInput>().character +" you won!";
+           // restartgame.enabled = true;
+            MainText.text = players[winner].GetComponent<PlayerInput>().character +" you won!";
+            state.text = "You Win!";
+            Time.timeScale = 0;
+           
         }
         else if(count<1)
         {
-            drawScreen.SetActive(true);
+            winScreen.SetActive(true);
+            state.text = "Game Over";
+            MainText.text =  "It's a Draw!";
+            
+           // restartgame.enabled = true;
+            Time.timeScale = 0;
         }
+    }
+
+    private void OnDestroy()
+    {
+        Time.timeScale = 1;
     }
 }
 

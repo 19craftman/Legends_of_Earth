@@ -1,24 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Rewired;
 public class BaseMove : MonoBehaviour
 {
 
     private Rigidbody2D rb;
     public float speed = 4;
     private string horizontal;
+    [SerializeField] private Player player;
+    private int PlayerIDNew;
     // Start is called before the first frame update
     void Start()
     {
-        horizontal = GetComponent<PlayerInput>().horizontal;
+        PlayerIDNew = GetComponent<PlayerInput>().PlayerID;
+        player = ReInput.players.GetPlayer(PlayerIDNew);
+        //horizontal = GetComponent<PlayerInput>().horizontal;
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        float horizontalInput = Input.GetAxis(horizontal);
+        float horizontalInput = player.GetAxis("horizontal");
         float xSpeed = rb.velocity.x;
+        Debug.Log(horizontalInput);
         if (horizontalInput != 0)
         {
             xSpeed += horizontalInput * speed;

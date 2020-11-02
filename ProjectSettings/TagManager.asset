@@ -12,6 +12,8 @@ TagManager:
   - FireTop
   - P1Death
   - P2Death
+  - Ground
+  - GameStartText
   layers:
   - Default
   - TransparentFX

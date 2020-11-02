@@ -9,6 +9,7 @@ public class AddPlayers : MonoBehaviour
     public static List<GameObject> players = new List<GameObject>();
     public GameObject[] prefabs;
     public List<int> chosen = new List<int>();
+    
 
     
 
@@ -22,7 +23,7 @@ public class AddPlayers : MonoBehaviour
         Debug.Log(players.Count);
         ////Time.timeScale = 0;
         GetComponent<SpawnPlayer>().Spawn();
-        GetComponent<ApplyModifier>().Apply(UnityEngine.Random.Range(0, 3));
+        GetComponent<ApplyModifier>().Apply(PlayerPrefs.GetInt("ModInt"));
     }
 
     // Update is called once per frame

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Instructions.unity
     guid: 336597ecb0c679c42ad0b624031d0281
   - enabled: 1
+    path: Assets/Scenes/SelectMini.unity
+    guid: 668490f55e352744abe822f3bf700283
+  - enabled: 1
     path: Assets/Scenes/Lazers.unity
     guid: d92c5bb9602fb3f4aa7b8f013ab519aa
   - enabled: 1

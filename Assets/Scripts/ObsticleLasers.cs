@@ -27,7 +27,9 @@ public class ObsticleLasers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //Debug.Log(timer);
+
         if (timer > 0)
         {
 
@@ -52,7 +54,9 @@ public class ObsticleLasers : MonoBehaviour
     }
     IEnumerator Prep(int rand, LaserController[] arr)
     {
+
         yield return new WaitForSeconds(Random.Range(2, 4));
+
         arr[rand].prep();
         yield return new WaitForSeconds(2);
         arr[rand].fire();

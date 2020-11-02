@@ -44,8 +44,10 @@ public class LazerFiring : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Debug.Log(speed);
         speed = 5 - (diffiulty / 2);
+
         count = Mathf.Round(1 + (diffiulty / 2));
         counttop = Mathf.Round(1 + (diffiulty / 2));
         if (count > lasers.Length - 1)
@@ -72,24 +74,24 @@ public class LazerFiring : MonoBehaviour
             //StartCoroutine(Prep());
             // StartCoroutine(Fire());
             // lasersFire[rand].SetActive(false);
-
+          
             for (int i = 0; i < count; i++)
             {
                 rand = Random.Range(0, lasers.Length);
 
-
-                StartCoroutine(Prep(rand, laserControllers));
-
-
+              
+            
+              StartCoroutine(Prep(rand, laserControllers));
 
             }
             for (int i = 0; i < counttop; i++)
             {
                 rand = Random.Range(0, laserTopControllers.Length);
 
+         
+                    StartCoroutine(Prep(rand, laserTopControllers));
 
-                StartCoroutine(Prep(rand, laserTopControllers));
-
+            
 
 
             }

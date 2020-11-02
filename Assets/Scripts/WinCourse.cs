@@ -28,6 +28,12 @@ public class WinCourse : MonoBehaviour
         {
             winScreen.SetActive(true);
             winnerName.text = players[winner].GetComponent<PlayerInput>().character + " you won!";
+            Time.timeScale = 0;
         }
+    }
+
+    private void OnDestroy()
+    {
+        Time.timeScale = 1;
     }
 }

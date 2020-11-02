@@ -8,4 +8,5 @@ public class PlayerInput : MonoBehaviour
     public string jump;
     public string time;
     public string character;
+    public int PlayerID;
 }

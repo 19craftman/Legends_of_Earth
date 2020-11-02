@@ -3,16 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Rewired;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private Player player;
+    private float timer;
     //Scene manager
+    public void Start()
+    {
+        timer = 1;
+        player = ReInput.players.GetPlayer(0);
+    }
+    public void Update()
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
 
+        }
+    }
     //creates a function that is called from a button in game
     public void BackGame()
     {
         Time.timeScale = 1f;
-        
+
+      
         //changes the scene to the menu scene
         SceneManager.LoadScene("MainMenu");
 
@@ -23,14 +39,22 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        //changes the scene to the Game scene
-        SceneManager.LoadScene("Lazers");
+
+        if (timer <=0)
+        {
+            PlayerPrefs.SetString("course", "Lazers");
+            //changes the scene to the Game scene
+
+            SceneManager.LoadScene("SelectMini");
+        }
     }
 
     public void PlayGame2()
     {
+        PlayerPrefs.SetString("course", "ObsCourse");
         //changes the scene to the Game scene
-        SceneManager.LoadScene("ObsCourse");
+        SceneManager.LoadScene("SelectMini");
+
     }
 
     public void Instructions()

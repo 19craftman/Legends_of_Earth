@@ -33,11 +33,11 @@ public class ModInstructions : MonoBehaviour
         }
         if (Count == 1)
         {
-            PlayerDesc.text = "Hit X to jump";
+            PlayerDesc.text = "Hit X to jump. If there is a platform above you, you will short jump instead";
         }
         if (Count == 2)
         {
-            PlayerDesc.text = "As you move, your Time Discrepancy Bar depletes, hold SQUARE to recharge it or you will die";
+            PlayerDesc.text = "As you move, your Time Discrepancy Bar depletes, hold SQUARE to recharge it or you will die (you cannot move while recharging)";
         }
         if (Count == 3)
         {
