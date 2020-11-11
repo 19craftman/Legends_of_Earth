@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ObsCourse.unity
     guid: 4567ea94b91795542beeadd0a8d508c7
+  - enabled: 1
+    path: Assets/Scenes/Bomb.unity
+    guid: cb7836789dce1fb42b2f38e04d4e384a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: eba90714d102bf141829273764931788,
       type: 2}
