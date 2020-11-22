@@ -86,4 +86,15 @@ public class PauseMenu : MonoBehaviour
         //sets paused boolean to false
         IsPaused = false;
     }
+
+    public void BackGame()
+    {
+        Time.timeScale = 1f;
+
+
+        //changes the scene to the menu scene
+        SceneManager.LoadScene("MainMenu");
+
+
+    }
 }

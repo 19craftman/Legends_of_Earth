@@ -14,9 +14,9 @@ public class SetSound : MonoBehaviour
     void Start()
     {
         //sets the slider values equal to their corresponding playerpref float
-       // Master.value = PlayerPrefs.GetFloat("ppmaster") * .5f;
-        //Sound.value = PlayerPrefs.GetFloat("ppsound") * .5f;
-        //Music.value = PlayerPrefs.GetFloat("ppmusic") * .5f;
+        Master.value = PlayerPrefs.GetFloat("ppmaster") * .5f;
+        Sound.value = PlayerPrefs.GetFloat("ppsound") * .5f;
+        Music.value = PlayerPrefs.GetFloat("ppmusic") * .5f;
     }
 
     // Update is called once per frame

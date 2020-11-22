@@ -57,6 +57,13 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void PlayGame3()
+    {
+        PlayerPrefs.SetString("course", "HotPotato");
+        //changes the scene to the Game scene
+        SceneManager.LoadScene("SelectMini");
+    }
+
     public void Instructions()
     {
         //changes the scene to the Game scene
