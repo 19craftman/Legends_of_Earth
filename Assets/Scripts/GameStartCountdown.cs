@@ -8,6 +8,7 @@ public class GameStartCountdown : MonoBehaviour
     public TextMeshProUGUI DisplayText;
     private float StartTimer = 5f;
     public Vector2 CurrentPosition;
+    public float GameStart = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,8 @@ public class GameStartCountdown : MonoBehaviour
         if (Mathf.Round(StartTimer) == 1)
         {
             DisplayText.text = "";
+            GameStart = 1;
+            PlayerPrefs.SetFloat("start", GameStart);
             Destroy(this.GetComponent<GameStartCountdown>());
         }
     }
