@@ -18,7 +18,7 @@ public class WinState : MonoBehaviour
 
     private int count;
     private int winner;
-    // Start is called before the first frame update   
+    // Start is called before the first frame update
     void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
