@@ -9,4 +9,9 @@ public class PlayerInput : MonoBehaviour
     public string time;
     public string character;
     public int PlayerID;
+
+    public void Awake()
+    {
+        PlayerID = PlayerPrefs.GetInt(character);
+    }
 }

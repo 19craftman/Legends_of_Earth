@@ -20,7 +20,7 @@ public class GameStartCountdown : MonoBehaviour
     void Update()
     {
         transform.position = CurrentPosition;
-        Debug.Log(Mathf.Round(StartTimer));
+        //Debug.Log(Mathf.Round(StartTimer));
         StartTimer -= Time.deltaTime;
         DisplayText = GameObject.FindGameObjectWithTag("GameStartText").GetComponent<TextMeshProUGUI>();
         this.GetComponent<DeathCountDown>().increaseTime();

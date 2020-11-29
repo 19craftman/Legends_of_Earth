@@ -28,6 +28,9 @@ public class DeathCountDown : MonoBehaviour
     bool hold = false;
     [SerializeField] private Player player;
     private int PlayerIDNew;
+
+    public AudioSource ChargeUp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -100,6 +103,7 @@ public class DeathCountDown : MonoBehaviour
         else if (hold && player.GetAxis("Recharge") == 0 && remainingTime == totalTime)
         {
             hold = false;
+            ChargeUp.Play();
             if (gameObject.GetComponent<BaseMove>() != null)
             {
                 gameObject.GetComponent<BaseMove>().enabled = true;

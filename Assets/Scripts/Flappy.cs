@@ -26,6 +26,7 @@ public class Flappy : MonoBehaviour
     float marginY = .05f;
 
     private bool jumping;
+    private bool canJump;
 
     private Rigidbody2D rb;
     // public LayerMask Ground;
@@ -47,6 +48,7 @@ public class Flappy : MonoBehaviour
         //jump = GetComponent<PlayerInput>().jump;
         rb = gameObject.GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
+        canJump = true;
     }
 
     private void FixedUpdate()
@@ -63,10 +65,8 @@ public class Flappy : MonoBehaviour
 
         if (!grounded)
         {
-
                 counterA++;
-                rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y - (gravity / 2), maxFall));
-            
+                rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y - (gravity / 2), maxFall)); 
         }
 
         if (rb.velocity.y < 0)
@@ -82,40 +82,29 @@ public class Flappy : MonoBehaviour
                 if (player.GetAxisRaw("Jump") == 0)
                 {
                     jumping = false;
-                    doubleJump = 50;
+                    doubleJump = 10;
                 }
 
             }
 
         }
-        
-        if (((grounded && !jumping) || doubleJump >= 1) && player.GetAxisRaw("Jump") > 0)
+
+        if (canJump && player.GetAxisRaw("Jump") > 0 && doubleJump>0)
         {
             if (!grounded)
                 rb.velocity = new Vector2(rb.velocity.x, 0f);
-            maxJump = 5.85f;
+
+            maxJump = 5f;
             jumpForce = jumpForceOrigin;
-            counterA = 0;
-            counterB = 0;
+            //counterA = 0;
+            //counterB = 0;
             jumping = true;
-            testY = 0f;
-            if (doubleJump >= 1)
-            {
-                doubleJump--;
-                maxJump += .2f;
-            }
-
+            //testY = 0f;
+            doubleJump--;
+            canJump = false;
         }
-        else if (jumpForce == jumpForceOrigin && jumping)
-        {
-            if (player.GetAxisRaw("Jump") == 0)
-            {
-                doubleJump--;
-                jumpForce *= 2f;
-            }
-
-        }
-
+        else if (player.GetAxisRaw("Jump") == 0)
+            canJump = true;
 
         if (jumping && maxJump > 0)
         {

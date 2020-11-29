@@ -9,22 +9,22 @@ using Rewired;
 
 public class ModSelect : MonoBehaviour
 {
-    
+
     private Text[] ButtonText;
     public Button[] TheButton;
     public GameObject[] ButtonObject;
-    private string[] Mods = {"Player Swap", "Double Jump","Move In Air" };
-    private string[] NamesMods = { "Player_Swap", "Double_Jump", "Move_In_Air" };
+    private string[] Mods = { "Flappy Jump", "Double Jump", "Icy Floors", "Jet Pack" };
+    private string[] NamesMods = { "Flappy_Jump", "Double_Jump", "Icy_Floors", "Jet_Pack" };
     private int modNumber;
     private int rand;
-    private int count;
+    //private int count;
     private float timer;
     private int buttonClick;
     private bool isclicked;
     public GameObject timingsystem;
     public static List<int> AddedModifiers = new List<int>();
     private int selector;
-   // private int randomadd;
+    // private int randomadd;
     private int themodifier;
     public GameObject selected;
     [SerializeField] private Player player;
@@ -41,17 +41,17 @@ public class ModSelect : MonoBehaviour
         timer = 1;
         AddedModifiers.Clear();
         selected.SetActive(false);
-      
-        count = 0;
+
+        //count = 0;
         for (int i = 0; i < TheButton.Length; i++)
         {
-
-            NumberOfButtons();
+            MakingButtons(i);
+            //NumberOfButtons();
             // ButtonText[i].text = Mods[Random.Range(0, Mods.Length)];
         }
     }
-        
-    
+
+
 
     // Update is called once per frame
     void Update()
@@ -62,15 +62,15 @@ public class ModSelect : MonoBehaviour
             timer -= Time.deltaTime;
 
         }
-            if (timingsystem.GetComponent<timer>().time == 0 || AddedModifiers.Count == 2)
-            {
+        if (timingsystem.GetComponent<timer>().time == 0 || AddedModifiers.Count == 2)
+        {
             if (AddedModifiers.Count > 0)
             {
                 //randomadd = Random.Range(0, 3);
                 selector = Random.Range(0, AddedModifiers.Count);
 
                 themodifier = AddedModifiers[selector];
-                Debug.Log(themodifier + " The Mod");
+                //Debug.Log(themodifier + " The Mod");
                 PlayerPrefs.SetInt("ModInt", themodifier);
 
 
@@ -78,63 +78,60 @@ public class ModSelect : MonoBehaviour
             }
             else
             {
-                selector = Random.Range(0, 2);
+                selector = Random.Range(0, 3);
 
                 // = AddedModifiers[selector];
-                Debug.Log(selector + " The Mod");
+                //Debug.Log(selector + " The Mod");
                 PlayerPrefs.SetInt("ModInt", selector);
                 SceneManager.LoadScene(PlayerPrefs.GetString("course"));
             }
 
-    }
-        
-        if (AddedModifiers != null && AddedModifiers.Count >=0 )
+        }
+
+        if (AddedModifiers != null && AddedModifiers.Count >= 0)
         {
-         
+
             Debug.Log(AddedModifiers.Count);
         }
     }
-    public void NumberOfButtons() 
-    {
-        if (count < TheButton.Length)
-        {
-            MakingButtons();
-            count++;
-        }
+    //public void NumberOfButtons() 
+    //{
+    //    if (count < TheButton.Length)
+    //    {
+    //        //MakingButtons();
+    //        count++;
+    //    }
+    //}
 
-
-    }
-    
-    public void MakingButtons()
+    public void MakingButtons(int count)
     {
         rand = Random.Range(0, Mods.Length);
         if (Mods[rand] != null)
         {
             //ButtonObject = TheButton[count];
             TheButton[count].name = NamesMods[rand];
-               TheButton[count].GetComponentInChildren<Text>().text = Mods[rand];
+            TheButton[count].GetComponentInChildren<Text>().text = Mods[rand];
             Mods[rand] = null;
-            return;
         }
         else
         {
-            MakingButtons();
+            MakingButtons(count);
         }
-
-
     }
-    
+
     public void OnClickedButton()
     {
+        
         string name = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text;
         if (timer <= 0)
         {
-            if (name == "Player Swap")
+            Debug.Log("clicked");
+            if (name == "Flappy Jump")
             {
 
                 modNumber = 0;
                 AddedModifiers.Add(modNumber);
-                Debug.Log("Player Swap");
+                Debug.Log("Flappy Jump");
                 for (int i = 0; i < TheButton.Length; i++)
                 {
                     TheButton[i].enabled = false;
@@ -152,11 +149,22 @@ public class ModSelect : MonoBehaviour
                 }
                 selected.SetActive(true);
             }
-            else if (name == "Move In Air")
+            else if (name == "Icy Floors")
             {
                 modNumber = 2;
                 AddedModifiers.Add(modNumber);
-                Debug.Log("Move In Air");
+                Debug.Log("Icy Floors");
+                for (int i = 0; i < TheButton.Length; i++)
+                {
+                    TheButton[i].enabled = false;
+                }
+                selected.SetActive(true);
+            }
+            else if (name == "Jet Pack")
+            {
+                modNumber = 3;
+                AddedModifiers.Add(modNumber);
+                Debug.Log("Jet Pack");
                 for (int i = 0; i < TheButton.Length; i++)
                 {
                     TheButton[i].enabled = false;
@@ -174,7 +182,7 @@ public class ModSelect : MonoBehaviour
                 selected.SetActive(true);
             }
         }
-        
+
     }
 
 }

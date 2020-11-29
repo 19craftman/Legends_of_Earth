@@ -11,6 +11,8 @@ public class teleporters : MonoBehaviour
   
     private GameObject[] players;
     private float teleporttime = 0;
+
+    public AudioSource TeleportSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class teleporters : MonoBehaviour
                 if (players[i].GetComponent<BoxCollider2D>().IsTouching(teleport[t].GetComponent<TilemapCollider2D>()) && teleporttime <= 0)
                 {
                     players[i].transform.position = teleportspawn[t].transform.position;
+                    TeleportSound.Play();
                     teleporttime = 1;
                 }
             }
