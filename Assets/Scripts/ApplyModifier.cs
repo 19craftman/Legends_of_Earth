@@ -5,9 +5,9 @@ using TMPro;
 
 public class ApplyModifier : MonoBehaviour
 {
-    
+
     public TextMeshProUGUI modString;
-    new string[] name = { "Player Swap", "Double Jump", "Move in air" };
+    new string[] name = { "Flappy Jump", "Double Jump", "Icy Floors", "Jet Pack" };
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class ApplyModifier : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Apply(int mod)
@@ -25,12 +25,20 @@ public class ApplyModifier : MonoBehaviour
         Debug.Log(name[1]);
         switch (mod)
         {
+            case 3:
+                modString.text = name[3];
+                foreach (GameObject a in players)
+                {
+                    Destroy(a.GetComponent<BaseJump>());
+                    a.AddComponent<JetPack>();
+                }
+                break;
             case 2:
                 modString.text = name[2];
                 foreach (GameObject a in players)
                 {
                     Destroy(a.GetComponent<BaseMove>());
-                    a.AddComponent<MoveInAir>();
+                    a.AddComponent<Icy>();
                 }
                 break;
             case 1:
@@ -43,8 +51,11 @@ public class ApplyModifier : MonoBehaviour
                 break;
             case 0:
                 modString.text = name[0];
-                gameObject.AddComponent<PlayerSwap>();
-                gameObject.GetComponent<PlayerSwap>().totalTime = 5;
+                foreach (GameObject a in players)
+                {
+                    Destroy(a.GetComponent<BaseJump>());
+                    a.AddComponent<Flappy>();
+                }
                 break;
             default:
                 break;

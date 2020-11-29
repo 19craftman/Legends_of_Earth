@@ -20,6 +20,9 @@ public class LazerFiring : MonoBehaviour
     private int previoustop;
     private float speed;
 
+    public AudioSource PrepSound;
+    public AudioSource FireSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,7 +77,7 @@ public class LazerFiring : MonoBehaviour
             //StartCoroutine(Prep());
             // StartCoroutine(Fire());
             // lasersFire[rand].SetActive(false);
-          
+            PrepSound.Play();
             for (int i = 0; i < count; i++)
             {
                 rand = Random.Range(0, lasers.Length);
@@ -106,6 +109,7 @@ public class LazerFiring : MonoBehaviour
 
         arr[rand].prep();
         yield return new WaitForSeconds(2);
+        FireSound.Play();
         arr[rand].fire();
         yield return new WaitForSeconds(1);
         arr[rand].off();

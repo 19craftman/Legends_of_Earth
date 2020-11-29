@@ -45,7 +45,7 @@ public class MainMenu : MonoBehaviour
             PlayerPrefs.SetString("course", "Lazers");
             //changes the scene to the Game scene
 
-            SceneManager.LoadScene("SelectMini");
+            SceneManager.LoadScene("PlayerSelect");
         }
     }
 
@@ -53,7 +53,7 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.SetString("course", "ObsCourse");
         //changes the scene to the Game scene
-        SceneManager.LoadScene("SelectMini");
+        SceneManager.LoadScene("PlayerSelect");
 
     }
 
@@ -61,7 +61,7 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.SetString("course", "HotPotato");
         //changes the scene to the Game scene
-        SceneManager.LoadScene("SelectMini");
+        SceneManager.LoadScene("PlayerSelect");
     }
 
     public void Instructions()
@@ -81,8 +81,18 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
     }
 
-    public void ReloadGame()
+    public void QuitGame()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("lastScene"));
+        Application.Quit();
     }
+
+    public void ToTrello()
+    {
+        Application.OpenURL("https://trello.com/b/wcyNkpDM/gdd410-group-project");
+    }
+
+    //public void ReloadGame()
+    //{
+        //SceneManager.LoadScene(PlayerPrefs.GetInt("lastScene"));
+    //}
 }

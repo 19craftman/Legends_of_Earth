@@ -23,7 +23,7 @@ public class BaseMove : MonoBehaviour
     {
         float horizontalInput = player.GetAxis("horizontal");
         float xSpeed = rb.velocity.x;
-        Debug.Log(horizontalInput);
+        //Debug.Log(horizontalInput);
         if (horizontalInput != 0)
         {
             xSpeed += horizontalInput * speed;

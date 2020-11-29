@@ -10,6 +10,9 @@ public class ObsticleLasers : MonoBehaviour
     private float timer;
     private int rand;
 
+    public AudioSource PrepSound;
+    public AudioSource FireSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +40,8 @@ public class ObsticleLasers : MonoBehaviour
         }
         else if (timer <= 0)
         {
-
-
+            
+            PrepSound.Play();
             for (int i = 0; i < laserstop.Length; i++)
             {
                 rand = Random.Range(0, laserTopControllers.Length);
@@ -59,6 +62,7 @@ public class ObsticleLasers : MonoBehaviour
 
         arr[rand].prep();
         yield return new WaitForSeconds(2);
+        FireSound.Play();
         arr[rand].fire();
         yield return new WaitForSeconds(1);
         arr[rand].off();

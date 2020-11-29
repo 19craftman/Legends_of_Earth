@@ -14,6 +14,9 @@ public class HotPotato : MonoBehaviour
     private int starttime = 30;
     private float potatocooldown = 0;
     public TextMeshProUGUI potatoTimer;
+
+    public AudioSource PotatoSwapped;
+    public AudioSource PotatoBoom;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,7 @@ public class HotPotato : MonoBehaviour
             if (players[potatoperson].GetComponent<BoxCollider2D>().IsTouching(players[i].GetComponent<BoxCollider2D>()) && potatocooldown <= 0)
             {
                 potatoperson = i;
+                PotatoSwapped.Play();
                 potatocooldown = 1;
             }
                 if (players[i].activeInHierarchy == true)
@@ -86,6 +90,7 @@ public class HotPotato : MonoBehaviour
     public void potatoDeath()
     {
         deadpotatoperson = potatoperson;
+        PotatoBoom.Play();
         hotPotato();
         players[deadpotatoperson].SetActive(false);
 

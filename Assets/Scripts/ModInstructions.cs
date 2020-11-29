@@ -41,25 +41,34 @@ public class ModInstructions : MonoBehaviour
         }
         if (Count == 3)
         {
+            PlayerDesc.text = "Press the START button to open the Pause Menu";
+        }
+        if (Count == 4)
+        {
             PlayerInst.transform.gameObject.SetActive(false);
             ModInst.transform.gameObject.SetActive(true);
         }
-        if (Count == 3)
+        if (Count == 4)
         {
             ModName.text = "Modifier: Double Jump";
             ModDesc.text = "Players have access to two jumps! Jumps reset everytime they hit the floor";
         }
-        if (Count == 4)
-        {
-            ModName.text = "Modifier: Move In Air";
-            ModDesc.text = "Players are unable to move while touching the ground";
-        }
         if (Count == 5)
         {
-            ModName.text = "Modifier: Player Swap";
-            ModDesc.text = "Each player will swap postions with eachother at set intervals of time.";
+            ModName.text = "Modifier: Icy";
+            ModDesc.text = "The floors are covered in Ice! The players now slide when they move on the ground";
         }
         if (Count == 6)
+        {
+            ModName.text = "Modifier: Flappy";
+            ModDesc.text = "Players can jump MANY times in a row, however each jump is very small!";
+        }
+        if (Count == 7)
+        {
+            ModName.text = "Modifier: JetPack";
+            ModDesc.text = "Each player is equiped with a JetPack! Hold jump to lift off! Recharge your Jetpack by landing on the ground";
+        }
+        if (Count == 8)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
