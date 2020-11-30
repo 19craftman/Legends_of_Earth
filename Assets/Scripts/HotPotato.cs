@@ -71,7 +71,11 @@ public class HotPotato : MonoBehaviour
         {
             potatoDeath();
         }
-        potatoTimer.text = Mathf.Round(potatotime) + "s";
+        if (players[potatoperson].activeInHierarchy == false)
+        {
+            hotPotato();
+        }
+            potatoTimer.text = Mathf.Round(potatotime) + "s";
     }
     public void hotPotato()
     {
@@ -82,6 +86,11 @@ public class HotPotato : MonoBehaviour
             potatoperson = Random.Range(0, players.Length);
 
         }
+        if (players[potatoperson].activeInHierarchy == false)
+        {
+            hotPotato();
+        }
+
 
         else
         { }

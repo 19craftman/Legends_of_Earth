@@ -62,7 +62,7 @@ public class ModSelect : MonoBehaviour
             timer -= Time.deltaTime;
 
         }
-        if (timingsystem.GetComponent<timer>().time == 0 || AddedModifiers.Count == 2)
+        if (timingsystem.GetComponent<timer>().time == 0 || AddedModifiers.Count == PlayerPrefs.GetInt("inGame")) //Here
         {
             if (AddedModifiers.Count > 0)
             {

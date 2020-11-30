@@ -53,7 +53,7 @@ namespace Rewired.Demos {
 
             // Watch for JoinGame action in each Player
             for(int i = 0; i < ReInput.players.playerCount; i++) {
-                if(ReInput.players.GetPlayer(i).GetButtonDown("JoinGame")) {
+                if(ReInput.players.GetPlayer(i).GetButtonDown("Submit")) {
                     AssignNextPlayer(i);
                 }
             }

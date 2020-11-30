@@ -26,8 +26,10 @@ public class WinCourse : MonoBehaviour
         //This is where we will put the death animations for later
         if (collision.gameObject.CompareTag("Player"))
         {
+
             winScreen.SetActive(true);
-            winnerName.text = players[winner].GetComponent<PlayerInput>().character + " you won!";
+            winnerName.text = collision.gameObject.GetComponent<PlayerInput>().character + " you won!";
+            collision.gameObject.GetComponent<PlayerInput>().points = collision.gameObject.GetComponent<PlayerInput>().points++;
             Time.timeScale = 0;
         }
     }

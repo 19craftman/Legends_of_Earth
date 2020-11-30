@@ -262,11 +262,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05fec199e257754d98cdad9986b6161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontal: J1Horizontal
-  jump: P1Jump
-  time: P1Time
   character: Princess
   PlayerID: 0
+  characterpoints: PrincessPoints
+  points: 0
 --- !u!114 &6449108772452204482
 MonoBehaviour:
   m_ObjectHideFlags: 0

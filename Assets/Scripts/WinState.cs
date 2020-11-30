@@ -42,6 +42,7 @@ public class WinState : MonoBehaviour
             winScreen.SetActive(true);
            // restartgame.enabled = true;
             MainText.text = players[winner].GetComponent<PlayerInput>().character +" you won!";
+            players[winner].GetComponent<PlayerInput>().points = players[winner].GetComponent<PlayerInput>().points++;
             state.text = "You Win!";
             Time.timeScale = 0;
            

@@ -255,11 +255,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05fec199e257754d98cdad9986b6161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontal: J2Horizontal
-  jump: P2Jump
-  time: P2Time
   character: Caveman
   PlayerID: 0
+  characterpoints: CavemanPoint
+  points: 0
 --- !u!61 &7601371090487005229
 BoxCollider2D:
   m_ObjectHideFlags: 0
