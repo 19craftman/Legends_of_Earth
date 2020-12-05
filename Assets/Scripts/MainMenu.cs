@@ -12,6 +12,10 @@ public class MainMenu : MonoBehaviour
     //Scene manager
     public void Start()
     {
+        PlayerPrefs.SetInt("CavemanPoints", 0);
+        PlayerPrefs.SetInt("PrincessPoints", 0);
+        PlayerPrefs.SetInt("CowboyPoints", 0);
+        PlayerPrefs.SetInt("RobotPoints", 0);
         timer = 1;
         player = ReInput.players.GetPlayer(0);
     }

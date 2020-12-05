@@ -21,6 +21,8 @@ public class PlayerSelecting : MonoBehaviour
     public Sprite[] characters;
     public static List<GameObject> players = new List<GameObject>();
     public GameObject[] prefabs;
+    public static List<GameObject> playersScoring = new List<GameObject>();
+    public GameObject[] prefabsScoring;
 
     //public List<GameObject> PlayerDot = new List<GameObject>();
     private List<int> currentlyin = new List<int>();
@@ -38,6 +40,7 @@ public class PlayerSelecting : MonoBehaviour
     void Start()
     {
         players.Clear();
+        playersScoring.Clear();
         for (int i = 0; i < PlayerDot.Length; i++)
         {
             if (PlayerDot[i] != null)
@@ -103,6 +106,7 @@ public class PlayerSelecting : MonoBehaviour
                     // PlayerDot.Remove(PlayerDot[i]);
                     //Destroy(PlayerDot[i]);
                     players.Add(prefabs[0]);
+                    playersScoring.Add(prefabsScoring[0]);
 
                     Selections[0].SetActive(false);
                 }
@@ -118,6 +122,7 @@ public class PlayerSelecting : MonoBehaviour
                     // Destroy(PlayerDot[i]);
                     //PlayerDot[i].SetActive(false);
                     players.Add(prefabs[1]);
+                    playersScoring.Add(prefabsScoring[1]);
                     Selections[1].SetActive(false);
                 }
                 else if (PlayerDot[i].GetComponent<BoxCollider2D>().IsTouching(Selections[2].GetComponent<BoxCollider2D>()))
@@ -128,6 +133,7 @@ public class PlayerSelecting : MonoBehaviour
                     playermenu[i].text = "READY!";
                     PlayerDot[i].SetActive(false);
                     players.Add(prefabs[2]);
+                    playersScoring.Add(prefabsScoring[2]);
                     Selections[2].SetActive(false);
                 }
                 // else if (PlayerDot[i].GetComponent<BoxCollider2D>().IsTouching(Selections[3].GetComponent<BoxCollider2D>()))

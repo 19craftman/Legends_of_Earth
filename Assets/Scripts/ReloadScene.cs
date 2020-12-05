@@ -30,4 +30,12 @@ public class ReloadScene : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    public void Scoring()
+    {
+        SceneManager.LoadScene("PointScreen");
+    }
+    public void select()
+    {
+        SceneManager.LoadScene("SelectMini");
+    }
 }

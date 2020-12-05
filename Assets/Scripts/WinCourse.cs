@@ -9,9 +9,11 @@ public class WinCourse : MonoBehaviour
     private int winner;
     public GameObject winScreen;
     public TextMeshProUGUI winnerName;
+    public bool once;
     // Start is called before the first frame update
     void Start()
     {
+        once = true;
         players = GameObject.FindGameObjectsWithTag("Player");
     }
 
@@ -29,7 +31,12 @@ public class WinCourse : MonoBehaviour
 
             winScreen.SetActive(true);
             winnerName.text = collision.gameObject.GetComponent<PlayerInput>().character + " you won!";
-            collision.gameObject.GetComponent<PlayerInput>().points = collision.gameObject.GetComponent<PlayerInput>().points++;
+            if (once)
+            {
+                PlayerPrefs.SetInt(collision.gameObject.GetComponent<PlayerInput>().characterpoints, PlayerPrefs.GetInt(collision.gameObject.GetComponent<PlayerInput>().characterpoints) + 1);
+                Debug.Log(collision.gameObject.GetComponent<PlayerInput>().character + " has " + PlayerPrefs.GetInt(collision.gameObject.GetComponent<PlayerInput>().characterpoints + " Points") + "Points");
+                once = false;
+            }
             Time.timeScale = 0;
         }
     }
