@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class timer : MonoBehaviour
 {
     public float time = 30;
-   public Text timing;
+    public TextMeshProUGUI timing;
     // Start is called before the first frame update
     void Start()
     {

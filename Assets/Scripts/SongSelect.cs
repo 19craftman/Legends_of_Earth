@@ -35,24 +35,20 @@ public class SongSelect : MonoBehaviour
         {
             //Debug.Log("song1");
             PlayerPrefs.SetString("SelectedSong", "SillyFeet");
-            //PlayerPrefs.SetFloat("SelectedSongNumber", SongNumber);
-            //var CurrentSong = Resources.Load<AudioClip>("AudioR/" + PlayerPrefs.GetString("SelectedSong"));
-            //GameMusic.clip = CurrentSong;
-            //GameMusic.Play();
         }
         if (SongNumber == 2)
         {
-            //Debug.Log("song2");
             PlayerPrefs.SetString("SelectedSong", "Boomerang");
-            //PlayerPrefs.SetFloat("SelectedSongNumber", SongNumber);
-            //var CurrentSong = Resources.Load<AudioClip>("AudioR/" + PlayerPrefs.GetString("SelectedSong"));
-            //GameMusic.clip = CurrentSong;
-            //GameMusic.Play();
         }
 
         if (SongNumber == 3)
         {
             PlayerPrefs.SetString("SelectedSong", "SteamtechMayhem");
+        }
+
+        if (SongNumber == 4)
+        {
+            PlayerPrefs.SetString("SelectedSong", "Stardust");
         }
 
         PlayerPrefs.SetFloat("SelectedSongNumber", SongNumber);

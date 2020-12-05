@@ -67,7 +67,7 @@ public class MainMenu : MonoBehaviour
     public void Instructions()
     {
         //changes the scene to the Game scene
-        SceneManager.LoadScene("Instructions");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void Skip()

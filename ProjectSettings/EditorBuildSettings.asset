@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayerSelect.unity
     guid: a7e484ed04cbcf047866c0231f787206
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 8605095b313cdb840b615583e64bdfc5
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: eba90714d102bf141829273764931788,
       type: 2}
