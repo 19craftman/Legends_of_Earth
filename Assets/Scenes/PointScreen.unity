@@ -350,7 +350,7 @@ MonoBehaviour:
   score: []
   timerbar: {fileID: 1996266520}
   nextButton: {fileID: 408052414}
-  backtomain: {fileID: 0}
+  backtomain: {fileID: 492425247}
   maintext: {fileID: 1594957739}
 --- !u!114 &308272062
 MonoBehaviour:
@@ -383,7 +383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &408052415
 RectTransform:
   m_ObjectHideFlags: 0
@@ -604,14 +604,13 @@ GameObject:
   - component: {fileID: 492425252}
   - component: {fileID: 492425251}
   - component: {fileID: 492425250}
-  - component: {fileID: 492425249}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &492425248
 RectTransform:
   m_ObjectHideFlags: 0
@@ -632,18 +631,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -227}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &492425249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492425247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b9368156ff211d4c8f1be6e397e55bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &492425250
 MonoBehaviour:
   m_ObjectHideFlags: 0
