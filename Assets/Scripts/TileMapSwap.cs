@@ -10,6 +10,8 @@ public class TileMapSwap : MonoBehaviour
     public GameObject Green;
     public bool Flip = false;
 
+    public AudioSource PlatformSwapSound;
+    public AudioSource PlatformSwappingSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +23,14 @@ public class TileMapSwap : MonoBehaviour
     {
         Countdown -= Time.deltaTime;
 
+        if (Countdown <= 2.5 && Countdown > 2 && !PlatformSwappingSound.isPlaying)
+        {
+            PlatformSwappingSound.Play();
+        }
+
         if (Countdown <= 0)
         {
+            PlatformSwapSound.Play();
             Countdown = 10;
             if (Flip == false)
             {
