@@ -257,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: Caveman
   PlayerID: 0
-  characterpoints: CavemanPoint
+  characterpoints: CavemanPoints
   points: 0
 --- !u!61 &7601371090487005229
 BoxCollider2D:

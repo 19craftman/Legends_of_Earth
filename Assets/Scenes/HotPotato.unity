@@ -8349,7 +8349,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1262914584}
-        m_MethodName: Tutorial
+        m_MethodName: Scoring
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

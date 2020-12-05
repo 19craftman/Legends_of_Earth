@@ -21,9 +21,10 @@ public class FollowLead : MonoBehaviour
     public TextMeshProUGUI MainText;
     public TextMeshProUGUI state;
     public Button restartgame;
-
+    public bool once;
     private void Start()
     {
+        once = true;
         target_Offset = new Vector3(transform.position.x - target.position.x, transform.position.y, transform.position.z);
         players = GameObject.FindGameObjectsWithTag("Player");
         index = 0;
@@ -60,7 +61,12 @@ public class FollowLead : MonoBehaviour
             winScreen.SetActive(true);
             // restartgame.enabled = true;
             MainText.text = players[first].GetComponent<PlayerInput>().character + " you won!";
-            players[first].GetComponent<PlayerInput>().points = players[first].GetComponent<PlayerInput>().points++;
+            if (once)
+            {
+                PlayerPrefs.SetInt(players[first].GetComponent<PlayerInput>().characterpoints, PlayerPrefs.GetInt(players[first].GetComponent<PlayerInput>().characterpoints) + 1);
+                Debug.Log(players[first].GetComponent<PlayerInput>().character + " has " + PlayerPrefs.GetInt(players[first].GetComponent<PlayerInput>().characterpoints) + "Points");
+                once = false;
+            }
             state.text = "You Win!";
             Time.timeScale = 0;
 

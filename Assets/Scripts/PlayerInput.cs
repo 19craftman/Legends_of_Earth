@@ -12,6 +12,7 @@ public class PlayerInput : MonoBehaviour
 
     public void Awake()
     {
+        
         PlayerID = PlayerPrefs.GetInt(character);
         points = PlayerPrefs.GetInt(characterpoints);
     }

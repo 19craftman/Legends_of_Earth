@@ -15,12 +15,13 @@ public class WinState : MonoBehaviour
     public TextMeshProUGUI MainText;
     public TextMeshProUGUI state;
     public Button restartgame;
-
+    private bool once;
     private int count;
     private int winner;
     // Start is called before the first frame update
     void Start()
     {
+        once = true;
         players = GameObject.FindGameObjectsWithTag("Player");
       
     }
@@ -42,7 +43,12 @@ public class WinState : MonoBehaviour
             winScreen.SetActive(true);
            // restartgame.enabled = true;
             MainText.text = players[winner].GetComponent<PlayerInput>().character +" you won!";
-            players[winner].GetComponent<PlayerInput>().points = players[winner].GetComponent<PlayerInput>().points++;
+            if (once)
+            {
+                PlayerPrefs.SetInt(players[winner].GetComponent<PlayerInput>().characterpoints, PlayerPrefs.GetInt(players[winner].GetComponent<PlayerInput>().characterpoints) + 1);
+                Debug.Log(players[winner].GetComponent<PlayerInput>().character + " has " + PlayerPrefs.GetInt(players[winner].GetComponent<PlayerInput>().characterpoints) + "Points");
+                once = false;
+            }
             state.text = "You Win!";
             Time.timeScale = 0;
            
