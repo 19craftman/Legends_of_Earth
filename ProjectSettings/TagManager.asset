@@ -16,6 +16,8 @@ TagManager:
   - GameStartText
   - MusicPlayer
   - P3Death
+  - ICON
+  - P4Death
   layers:
   - Default
   - TransparentFX

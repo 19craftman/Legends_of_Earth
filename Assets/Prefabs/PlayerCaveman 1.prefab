@@ -259,6 +259,7 @@ MonoBehaviour:
   PlayerID: 0
   characterpoints: CavemanPoints
   points: 0
+  item: {fileID: 6700639130030544261, guid: 7a5ff04f886ea5f40be4c640e20f5329, type: 3}
 --- !u!61 &7601371090487005229
 BoxCollider2D:
   m_ObjectHideFlags: 0

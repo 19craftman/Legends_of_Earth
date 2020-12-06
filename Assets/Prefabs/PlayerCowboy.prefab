@@ -266,6 +266,7 @@ MonoBehaviour:
   PlayerID: 0
   characterpoints: CowboyPoints
   points: 0
+  item: {fileID: 6700639130030544261, guid: 7a5ff04f886ea5f40be4c640e20f5329, type: 3}
 --- !u!114 &6449108772452204482
 MonoBehaviour:
   m_ObjectHideFlags: 0

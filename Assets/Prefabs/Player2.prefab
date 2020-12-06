@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6700639130030544258}
   - component: {fileID: 6700639130030544257}
   - component: {fileID: -8083043506332764900}
-  - component: {fileID: -4093449119978786709}
   - component: {fileID: 6700639130030544263}
   - component: {fileID: 6700639130030544262}
   - component: {fileID: -7284318793341403039}
@@ -93,27 +92,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6700639130030544261}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1e0924a734155e4d9bb71874f7f5ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
---- !u!114 &-4093449119978786709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6700639130030544261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65375e079dc816149bc59232d3159483, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ground:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!50 &6700639130030544263
 Rigidbody2D:
   serializedVersion: 4
@@ -168,7 +152,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6700639130030544261}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d630b8ba6e19a1f4a9f458c4e6c19797, type: 3}
   m_Name: 
@@ -178,3 +162,4 @@ MonoBehaviour:
   remainingTime: 0
   countDownBar: {fileID: 0}
   deathtag: P2Death
+  ChargeUp: {fileID: 0}

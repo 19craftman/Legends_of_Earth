@@ -92,7 +92,7 @@ public class ModSelect : MonoBehaviour
         if (AddedModifiers != null && AddedModifiers.Count >= 0)
         {
 
-            Debug.Log(AddedModifiers.Count);
+            //Debug.Log(AddedModifiers.Count);
         }
     }
     //public void NumberOfButtons() 
