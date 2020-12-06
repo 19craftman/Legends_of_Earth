@@ -101,6 +101,8 @@ public class HotPotato : MonoBehaviour
         deadpotatoperson = potatoperson;
         PotatoBoom.Play();
         hotPotato();
+        GameObject a = Instantiate(players[deadpotatoperson].GetComponent<PlayerInput>().dead);
+        a.transform.position = players[deadpotatoperson].transform.position;
         players[deadpotatoperson].SetActive(false);
 
     }

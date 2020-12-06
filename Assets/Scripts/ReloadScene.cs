@@ -32,7 +32,17 @@ public class ReloadScene : MonoBehaviour
     }
     public void Scoring()
     {
-        SceneManager.LoadScene("PointScreen");
+
+        if (PlayerPrefs.GetInt("Scored") == 1)
+        {
+            SceneManager.LoadScene("PointScreen");
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu");
+
+        }
+      
     }
     public void select()
     {

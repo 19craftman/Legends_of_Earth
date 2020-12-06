@@ -267,6 +267,7 @@ MonoBehaviour:
   PlayerID: 0
   characterpoints: RobotPoints
   points: 0
+  dead: {fileID: 3205416402212964960, guid: d41d7c280ab5a7e4aacbab80e7c4403a, type: 3}
 --- !u!114 &6449108772452204482
 MonoBehaviour:
   m_ObjectHideFlags: 0

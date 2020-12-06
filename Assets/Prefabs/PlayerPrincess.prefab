@@ -266,6 +266,7 @@ MonoBehaviour:
   PlayerID: 0
   characterpoints: PrincessPoints
   points: 0
+  dead: {fileID: 7866821265860924443, guid: 853a763b20e811447855a4d16c9b1955, type: 3}
 --- !u!114 &6449108772452204482
 MonoBehaviour:
   m_ObjectHideFlags: 0

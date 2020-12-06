@@ -14,8 +14,8 @@ public class ModSelect : MonoBehaviour
     private Text[] ButtonText;
     public Button[] TheButton;
     public GameObject[] ButtonObject;
-    private string[] Mods = { "Flappy Jump", "Double Jump", "Icy Floors", "Jet Pack" };
-    private string[] NamesMods = { "Flappy_Jump", "Double_Jump", "Icy_Floors", "Jet_Pack" };
+    private string[] Mods = { "Flappy Jump", "Double Jump", "Icy Floors", "Jet Pack", "Double Speed" };
+    private string[] NamesMods = { "Flappy_Jump", "Double_Jump", "Icy_Floors", "Jet_Pack", "Double_Speed" };
     private int modNumber;
     private int rand;
     //private int count;
@@ -29,6 +29,7 @@ public class ModSelect : MonoBehaviour
     private int themodifier;
     public GameObject selected;
     [SerializeField] private Player player;
+    private string[] minigames = {"ObsCourse", "Lazers", "HotPotato"};
 
     //private int made;
     // Start is called before the first frame update
@@ -39,6 +40,12 @@ public class ModSelect : MonoBehaviour
     }
     void Start()
     {
+        if (PlayerPrefs.GetInt("Scored") == 1)
+        {
+          
+            PlayerPrefs.SetString("course", minigames[Random.Range(0, minigames.Length)]);
+            
+        }
         timer = 1;
         AddedModifiers.Clear();
         selected.SetActive(false);
@@ -79,7 +86,7 @@ public class ModSelect : MonoBehaviour
             }
             else
             {
-                selector = Random.Range(0, 3);
+                selector = Random.Range(0, Mods.Length);
 
                 // = AddedModifiers[selector];
                 //Debug.Log(selector + " The Mod");
@@ -127,6 +134,7 @@ public class ModSelect : MonoBehaviour
         if (timer <= 0)
         {
             Debug.Log("clicked");
+        
             if (name == "Flappy Jump")
             {
 
@@ -166,6 +174,18 @@ public class ModSelect : MonoBehaviour
                 modNumber = 3;
                 AddedModifiers.Add(modNumber);
                 Debug.Log("Jet Pack");
+                for (int i = 0; i < TheButton.Length; i++)
+                {
+                    TheButton[i].enabled = false;
+                }
+                selected.SetActive(true);
+            }
+           else if (name == "Double Speed")
+            {
+
+                modNumber = 4;
+                AddedModifiers.Add(modNumber);
+                Debug.Log("Double Speed");
                 for (int i = 0; i < TheButton.Length; i++)
                 {
                     TheButton[i].enabled = false;

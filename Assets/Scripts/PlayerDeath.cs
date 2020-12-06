@@ -20,6 +20,8 @@ public class PlayerDeath : MonoBehaviour
         //This is where we will put the death animations for later
         if (collision.gameObject.CompareTag("Player"))
         {
+            GameObject a = Instantiate(collision.gameObject.GetComponent<PlayerInput>().dead);
+            a.transform.position = collision.gameObject.transform.position;
             collision.gameObject.SetActive(false);
         }
     }
