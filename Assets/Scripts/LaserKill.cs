@@ -22,9 +22,10 @@ public class LaserKill : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Die");
+            GameObject a = Instantiate(other.gameObject.GetComponent<PlayerInput>().dead);
+            a.transform.position = other.transform.position;
             other.gameObject.SetActive(false);
-        }
-
+        } 
     }
    
   

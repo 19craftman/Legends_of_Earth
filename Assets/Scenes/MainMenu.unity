@@ -1018,7 +1018,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3, y: 0.03}
   m_AnchorMax: {x: 0.7, y: 0.2}
-  m_AnchoredPosition: {x: -0.000061035156, y: -6.451599}
+  m_AnchoredPosition: {x: -0.000061035156, y: -6.4515686}
   m_SizeDelta: {x: -189.86517, y: -38.417084}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &261159233
@@ -6865,7 +6865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.8, y: -35.079998}
+  m_AnchoredPosition: {x: 206.8, y: -35.08}
   m_SizeDelta: {x: 139.5, y: 32.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1378617755
@@ -6912,7 +6912,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 519420034}
-        m_MethodName: PlayGame
+        m_MethodName: scoredGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

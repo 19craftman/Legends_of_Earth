@@ -266,6 +266,7 @@ MonoBehaviour:
   PlayerID: 0
   characterpoints: CowboyPoints
   points: 0
+  dead: {fileID: 5041161086276122970, guid: d71d680e9ad591c4e8cd804a1b0c61e2, type: 3}
 --- !u!114 &6449108772452204482
 MonoBehaviour:
   m_ObjectHideFlags: 0

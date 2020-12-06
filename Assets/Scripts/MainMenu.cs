@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Player player;
     private float timer;
+    private int play;
     //Scene manager
     public void Start()
     {
@@ -16,6 +17,8 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("PrincessPoints", 0);
         PlayerPrefs.SetInt("CowboyPoints", 0);
         PlayerPrefs.SetInt("RobotPoints", 0);
+        PlayerPrefs.SetInt("Scored", 0);
+
         timer = 1;
         player = ReInput.players.GetPlayer(0);
     }
@@ -94,9 +97,14 @@ public class MainMenu : MonoBehaviour
     {
         Application.OpenURL("https://trello.com/b/wcyNkpDM/gdd410-group-project");
     }
-
+    public void scoredGame()
+    {
+        play = 1;
+        PlayerPrefs.SetInt("Scored", play);
+        SceneManager.LoadScene("PlayerSelect");
+    }
     //public void ReloadGame()
     //{
-        //SceneManager.LoadScene(PlayerPrefs.GetInt("lastScene"));
+    //SceneManager.LoadScene(PlayerPrefs.GetInt("lastScene"));
     //}
 }

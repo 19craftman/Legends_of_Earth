@@ -74,6 +74,8 @@ public class DeathCountDown : MonoBehaviour
         {
 
             //kill player
+            GameObject a = Instantiate(gameObject.GetComponent<PlayerInput>().dead);
+            a.transform.position = gameObject.transform.position;
             gameObject.SetActive(false);
         }
         if (!hold && grounded && gameObject.GetComponent<Rigidbody2D>().velocity == Vector2.zero && player.GetAxis("Recharge") >= .1)

@@ -7,7 +7,7 @@ public class ApplyModifier : MonoBehaviour
 {
 
     public TextMeshProUGUI modString;
-    new string[] name = { "Flappy Jump", "Double Jump", "Icy Floors", "Jet Pack" };
+    new string[] name = { "Flappy Jump", "Double Jump", "Icy Floors", "Jet Pack","Double Speed" };
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,15 @@ public class ApplyModifier : MonoBehaviour
         Debug.Log(name[1]);
         switch (mod)
         {
+
+            case 4:
+                modString.text = name[4];
+                foreach (GameObject a in players)
+                {
+                    Destroy(a.GetComponent<BaseMove>());
+                    a.AddComponent<SpeedUp>();
+                }
+                break;
             case 3:
                 modString.text = name[3];
                 foreach (GameObject a in players)
