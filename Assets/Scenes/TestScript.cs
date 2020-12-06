@@ -7,7 +7,7 @@ public class TestScript : MonoBehaviour
     //public GameObject TurnOned;
     public GameObject[] bars;
     GameObject[] players;
-    public string[] name;
+    public string[] characterNames;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,7 @@ public class TestScript : MonoBehaviour
             foreach(GameObject player in players)
             {
                 //Debug.Log(name[i] + " compare " + player.GetComponent<PlayerInput>().character);
-                if(name[i].Equals(player.GetComponent<PlayerInput>().character))
+                if(characterNames[i].Equals(player.GetComponent<PlayerInput>().character))
                 {
                     inGame = true;
                     break;

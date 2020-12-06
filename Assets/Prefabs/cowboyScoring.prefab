@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -3.293}
+  m_AnchoredPosition: {x: 0, y: -3}
   m_SizeDelta: {x: 1, y: 3.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3227059407737275180
@@ -174,7 +174,7 @@ MonoBehaviour:
   PlayerID: 0
   characterpoints: CowboyPoints
   points: 0
-  item: {fileID: 6700639130030544261, guid: 7a5ff04f886ea5f40be4c640e20f5329, type: 3}
+  dead: {fileID: 0}
 --- !u!1 &5310999477197836430
 GameObject:
   m_ObjectHideFlags: 0

@@ -100,6 +100,8 @@ GameObject:
   - component: {fileID: 2860788412709727787}
   - component: {fileID: 8935117787843558908}
   - component: {fileID: 353252104247050761}
+  - component: {fileID: 1910202373448028240}
+  - component: {fileID: 7567190859302745121}
   m_Layer: 9
   m_Name: PlayerRobot
   m_TagString: Player
@@ -411,3 +413,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1910202373448028240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763459112878233187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b4d8f5503edf4c8cbddf66b2b96ee16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &7567190859302745121
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763459112878233187}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 257604d27b22a4cfebf5ce5fd4fd781a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

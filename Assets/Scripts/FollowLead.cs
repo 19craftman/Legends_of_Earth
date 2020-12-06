@@ -51,7 +51,7 @@ public class FollowLead : MonoBehaviour
         }
         for (int t = 0; t < players.Length; t++)
         {
-            if (players[t].transform.position.x > players[index].transform.position.x)
+            if (players[t].transform.position.x > players[first].transform.position.x)
             {
                 first = t;
             }
@@ -60,6 +60,7 @@ public class FollowLead : MonoBehaviour
         {
             winScreen.SetActive(true);
             // restartgame.enabled = true;
+            Debug.Log(first + players[first].GetComponent<PlayerInput>().character);
             MainText.text = players[first].GetComponent<PlayerInput>().character + " you won!";
             if (once)
             {

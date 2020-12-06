@@ -233,7 +233,7 @@ MonoBehaviour:
   - {fileID: 517685141653100888}
   - {fileID: 517685140942665427}
   - {fileID: 517685141434969832}
-  name:
+  characterNames:
   - Princess
   - Caveman
   - Cowboy

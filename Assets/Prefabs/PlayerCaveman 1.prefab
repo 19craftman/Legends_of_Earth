@@ -100,6 +100,8 @@ GameObject:
   - component: {fileID: -2537202284669665180}
   - component: {fileID: 6446102240356212366}
   - component: {fileID: 7732734939393065204}
+  - component: {fileID: 9197359026180156260}
+  - component: {fileID: 5045515322448812844}
   m_Layer: 9
   m_Name: PlayerCaveman 1
   m_TagString: Player
@@ -410,3 +412,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &9197359026180156260
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763459112878233187}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5b8432cead49c49f89efc9cc565dbcc9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5045515322448812844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763459112878233187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b4d8f5503edf4c8cbddf66b2b96ee16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
