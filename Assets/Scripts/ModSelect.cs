@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using Rewired;
+using TMPro;
 
 
 public class ModSelect : MonoBehaviour
@@ -110,7 +111,7 @@ public class ModSelect : MonoBehaviour
         {
             //ButtonObject = TheButton[count];
             TheButton[count].name = NamesMods[rand];
-            TheButton[count].GetComponentInChildren<Text>().text = Mods[rand];
+            TheButton[count].GetComponentInChildren<TextMeshProUGUI>().text = Mods[rand];
             Mods[rand] = null;
         }
         else
@@ -122,7 +123,7 @@ public class ModSelect : MonoBehaviour
     public void OnClickedButton()
     {
         
-        string name = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text;
+        string name = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>().text;
         if (timer <= 0)
         {
             Debug.Log("clicked");

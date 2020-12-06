@@ -136,6 +136,17 @@ public class PlayerSelecting : MonoBehaviour
                     playersScoring.Add(prefabsScoring[2]);
                     Selections[2].SetActive(false);
                 }
+                else if (PlayerDot[i].GetComponent<BoxCollider2D>().IsTouching(Selections[3].GetComponent<BoxCollider2D>()))
+                {
+                    PlayerPrefs.SetInt("Robot", i);
+                    selectedChar[i].GetComponent<SpriteRenderer>().sprite = characters[3];
+
+                    playermenu[i].text = "READY!";
+                    PlayerDot[i].SetActive(false);
+                    players.Add(prefabs[3]);
+                    playersScoring.Add(prefabsScoring[3]);
+                    Selections[3].SetActive(false);
+                }
                 // else if (PlayerDot[i].GetComponent<BoxCollider2D>().IsTouching(Selections[3].GetComponent<BoxCollider2D>()))
                 // {
 
