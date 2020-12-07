@@ -14,8 +14,8 @@ public class ModSelect : MonoBehaviour
     private Text[] ButtonText;
     public Button[] TheButton;
     public GameObject[] ButtonObject;
-    private string[] Mods = { "Flappy Jump", "Double Jump", "Icy Floors", "Jet Pack", "Double Speed" };
-    private string[] NamesMods = { "Flappy_Jump", "Double_Jump", "Icy_Floors", "Jet_Pack", "Double_Speed" };
+    private string[] Mods = { "Flappy Jump", "Double Jump", "Icy Floors", "Jet Pack", "Double Speed", "Low Gravity" };
+    private string[] NamesMods = { "Flappy_Jump", "Double_Jump", "Icy_Floors", "Jet_Pack", "Double_Speed", "Low_Gravity" };
     private int modNumber;
     private int rand;
     //private int count;
@@ -186,6 +186,18 @@ public class ModSelect : MonoBehaviour
                 modNumber = 4;
                 AddedModifiers.Add(modNumber);
                 Debug.Log("Double Speed");
+                for (int i = 0; i < TheButton.Length; i++)
+                {
+                    TheButton[i].enabled = false;
+                }
+                selected.SetActive(true);
+            }
+            else if (name == "Low Gravity")
+            {
+
+                modNumber = 5;
+                AddedModifiers.Add(modNumber);
+                Debug.Log("Low Gravity");
                 for (int i = 0; i < TheButton.Length; i++)
                 {
                     TheButton[i].enabled = false;

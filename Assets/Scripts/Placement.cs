@@ -13,7 +13,7 @@ public class Placement : MonoBehaviour
    
     public List<Image> bars = new List<Image>();
     public int winscore;
-    private float time = 15;
+    private float time = 10;
     public TextMeshProUGUI timing;
     public List<TextMeshProUGUI> score = new List<TextMeshProUGUI>();
     public Image timerbar;
@@ -40,7 +40,7 @@ public class Placement : MonoBehaviour
             bars.Add(scoring[i].GetComponentInChildren<Image>());
             Debug.Log(PlayerPrefs.GetInt(scoring[i].GetComponent<PlayerInput>().characterpoints));
             score.Add(scoring[i].GetComponentInChildren<TextMeshProUGUI>());
-            score[i].text = PlayerPrefs.GetInt(scoring[i].GetComponent<PlayerInput>().characterpoints) + " Points";
+            score[i].text = PlayerPrefs.GetInt(scoring[i].GetComponent<PlayerInput>().characterpoints) + "\nPoints";
             bars[i].fillAmount = (float)PlayerPrefs.GetInt(scoring[i].GetComponent<PlayerInput>().characterpoints) / (float)winscore;
             scoring[i].transform.position = placements[i];
             if (PlayerPrefs.GetInt(scoring[i].GetComponent<PlayerInput>().characterpoints) == 3)
@@ -75,6 +75,6 @@ public class Placement : MonoBehaviour
             time -= Time.deltaTime;
             
         }
-        timerbar.fillAmount = time / 15;
+        timerbar.fillAmount = time / 10;
     }
 }
