@@ -166,6 +166,7 @@ public class PlayerSelecting : MonoBehaviour
             float xSpeed = PlayerDot[i].GetComponent<Rigidbody2D>().velocity.x;
             float ySpeed = PlayerDot[i].GetComponent<Rigidbody2D>().velocity.y;
 
+            PlayerDot[i].transform.up = PlayerDot[i].GetComponent<Rigidbody2D>().velocity;
 
             var leftCorner = theCamera.ScreenToWorldPoint(Vector3.zero);
 

@@ -40,6 +40,8 @@ public class WinState : MonoBehaviour
         }
         if (count == 1)
         {
+            GameObject PPanel = GameObject.FindGameObjectWithTag("PMenu");
+            Destroy(PPanel.GetComponent<PauseMenu>());
             winScreen.SetActive(true);
            // restartgame.enabled = true;
             MainText.text = players[winner].GetComponent<PlayerInput>().character +" you won!";
@@ -55,6 +57,8 @@ public class WinState : MonoBehaviour
         }
         else if(count<1)
         {
+            GameObject PPanel = GameObject.FindGameObjectWithTag("PMenu");
+            Destroy(PPanel.GetComponent<PauseMenu>());
             winScreen.SetActive(true);
             state.text = "Game Over";
             MainText.text =  "It's a Draw!";

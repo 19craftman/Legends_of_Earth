@@ -238,6 +238,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8685857371377633261, guid: 5ee9268b201b34323abc6d732b8f63f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: ICON
+      objectReference: {fileID: 0}
     - target: {fileID: 8733189970299676069, guid: 5ee9268b201b34323abc6d732b8f63f9,
         type: 3}
       propertyPath: m_SortingOrder
@@ -3238,9 +3243,9 @@ MonoBehaviour:
   - {fileID: 539844404}
   - {fileID: 1564377726}
   characters:
-  - {fileID: 21300000, guid: fde6ba08367b2514e91aabe5fec1b13a, type: 3}
-  - {fileID: 21300000, guid: ee71480bb64694e258af53218b9288c9, type: 3}
-  - {fileID: 21300000, guid: f9868bcbabe2d7a4d995e12091bbcdba, type: 3}
+  - {fileID: -240412859360823426, guid: 15723fa27331f485181ab62479507f1e, type: 3}
+  - {fileID: 867194523712916225, guid: 36cc14c11b2244413bb5885080b5694d, type: 3}
+  - {fileID: 3982797145344114222, guid: 52174fa6de7184b15a991c70815477e6, type: 3}
   - {fileID: -5952181624076977987, guid: c94e8adaa2e6fdd4999d21c70d881c7c, type: 3}
   prefabs:
   - {fileID: 8763459112878233187, guid: 1b9838a1ca1b2df4da16bbb961d26980, type: 3}
@@ -4011,6 +4016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8685857371377633261, guid: 5ee9268b201b34323abc6d732b8f63f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: ICON
       objectReference: {fileID: 0}
     - target: {fileID: 8733189970299676069, guid: 5ee9268b201b34323abc6d732b8f63f9,
         type: 3}
@@ -5163,6 +5173,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8685857371377633261, guid: 5ee9268b201b34323abc6d732b8f63f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: ICON
+      objectReference: {fileID: 0}
     - target: {fileID: 8733189970299676069, guid: 5ee9268b201b34323abc6d732b8f63f9,
         type: 3}
       propertyPath: m_SortingOrder
@@ -5343,6 +5358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8685857371377633261, guid: 5ee9268b201b34323abc6d732b8f63f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: ICON
       objectReference: {fileID: 0}
     - target: {fileID: 8733189970299676069, guid: 5ee9268b201b34323abc6d732b8f63f9,
         type: 3}

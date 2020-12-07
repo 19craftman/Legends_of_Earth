@@ -8,11 +8,11 @@ using Rewired;
 
 public class LowGravity : MonoBehaviour
 {
-    float gravity = .25f;
-    float maxFall = -30f;
-    public float maxJump =-1f;
-    public float jumpForce = 2.35f;
-    float jumpForceOrigin = 2.35f;
+    float gravity = .15f;
+    float maxFall = -20f;
+    public float maxJump = -1f;
+    public float jumpForce = 2f;
+    float jumpForceOrigin = 10f;
     float yLimit = 3f;
 
     Rect box;
@@ -29,7 +29,7 @@ public class LowGravity : MonoBehaviour
     public bool jumping;
 
     private Rigidbody2D rb;
-   // public LayerMask Ground;
+    // public LayerMask Ground;
     private string jump;
 
 
@@ -37,7 +37,7 @@ public class LowGravity : MonoBehaviour
     public float testY;
     public int counterA;
     public int counterB;
-
+    private BaseMove movement;
     [SerializeField] private Player player;
     private int PlayerIDNew;
     void Start()
@@ -47,16 +47,19 @@ public class LowGravity : MonoBehaviour
         //jump = GetComponent<PlayerInput>().jump;
         rb = gameObject.GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
+        movement = gameObject.GetComponent<BaseMove>();
+        movement.speed = 3;
+
     }
 
 
     private void Update()
     {
-        
+
     }
     private void FixedUpdate()
     {
-       // testY=player.GetAxisRaw("Jump");
+        // testY=player.GetAxisRaw("Jump");
         velocity = rb.velocity;
         box = new Rect(
             GetComponent<BoxCollider2D>().bounds.min.x,
@@ -66,13 +69,13 @@ public class LowGravity : MonoBehaviour
             );
 
 
-        if(!grounded)
+        if (!grounded)
         {
-            
-            if(belowGround())
+
+            if (belowGround())
             {
                 counterA++;
-                rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y - (gravity/2), maxFall));
+                rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y - (gravity / 2), maxFall));
             }
             else
             {
@@ -85,8 +88,8 @@ public class LowGravity : MonoBehaviour
         {
             falling = true;
         }
-            
-        
+
+
         if (grounded || falling)
         {
             grounded = isGrounded();
@@ -100,32 +103,32 @@ public class LowGravity : MonoBehaviour
                     jumpForce = jumpForceOrigin;
                     maxJump = 5.85f;
                 }
-                    
+
             }
 
         }
 
         if (grounded && !jumping && player.GetAxisRaw("Jump") > 0)
         {
-            
+
             counterA = 0;
             counterB = 0;
             jumping = true;
         }
-//        else if(jumpForce==jumpForceOrigin && jumping)
-//        {
- //           if(player.GetAxisRaw("Jump") == 0)
- //           {
-//                jumpForce *= 2f;
-//            }
-                
-//        }
-        
+        //        else if(jumpForce==jumpForceOrigin && jumping)
+        //        {
+        //           if(player.GetAxisRaw("Jump") == 0)
+        //           {
+        //                jumpForce *= 2f;
+        //            }
 
-        if(jumping && maxJump>0)
+        //        }
+
+
+        if (jumping && maxJump > 0)
         {
             float yVelocity = rb.velocity.y + Mathf.Max(maxJump, 0f);
-            if(belowGround())
+            if (belowGround())
             {
                 yVelocity = Mathf.Min(yVelocity, yLimit);
                 maxJump -= 1.5f * jumpForceOrigin;
@@ -134,10 +137,10 @@ public class LowGravity : MonoBehaviour
             {
                 maxJump -= jumpForce;
             }
-            
+
             rb.velocity = new Vector2(rb.velocity.x, yVelocity);
         }
-        
+
 
     }
 

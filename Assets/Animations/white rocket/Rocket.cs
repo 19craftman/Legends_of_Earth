@@ -25,7 +25,7 @@ public class Rocket : MonoBehaviour
                 Destroy(spawn);
             }
             button = eventSystem.currentSelectedGameObject;
-            if (!eventSystem.currentSelectedGameObject.CompareTag("Slider") && eventSystem.currentSelectedGameObject != null && button.activeInHierarchy == true)
+            if (button != null && button.activeInHierarchy == true && !button.CompareTag("Slider"))
             {
                 
                 spawn = Instantiate(roc);

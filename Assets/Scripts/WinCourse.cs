@@ -28,7 +28,8 @@ public class WinCourse : MonoBehaviour
         //This is where we will put the death animations for later
         if (collision.gameObject.CompareTag("Player"))
         {
-
+            GameObject PPanel = GameObject.FindGameObjectWithTag("PMenu");
+            Destroy(PPanel.GetComponent<PauseMenu>());
             winScreen.SetActive(true);
             winnerName.text = collision.gameObject.GetComponent<PlayerInput>().character + " you won!";
             if (once)

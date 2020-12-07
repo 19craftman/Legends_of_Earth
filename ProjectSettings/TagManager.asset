@@ -19,6 +19,7 @@ TagManager:
   - ICON
   - P4Death
   - Slider
+  - PMenu
   layers:
   - Default
   - TransparentFX

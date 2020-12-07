@@ -13,7 +13,7 @@ public class Placement : MonoBehaviour
    
     public List<Image> bars = new List<Image>();
     public int winscore;
-    private float time = 10;
+    private float time = 7;
     public TextMeshProUGUI timing;
     public List<TextMeshProUGUI> score = new List<TextMeshProUGUI>();
     public Image timerbar;
@@ -75,6 +75,6 @@ public class Placement : MonoBehaviour
             time -= Time.deltaTime;
             
         }
-        timerbar.fillAmount = time / 10;
+        timerbar.fillAmount = time / 7;
     }
 }

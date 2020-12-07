@@ -11,6 +11,7 @@ public class ButtonInteract : MonoBehaviour
     private void Awake()
     {
         thebutton = this.gameObject.GetComponent<Button>();
+        
     }
 
     // Start is called before the first frame update
@@ -19,11 +20,22 @@ public class ButtonInteract : MonoBehaviour
         
         time = .5f;
         thebutton.interactable = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(Time.deltaTime);
+        if(Time.timeScale==0)
+        {
+            time -= .005f;
+            if (time <0 && time > -1)
+            {
+                thebutton.Select();
+                thebutton.OnSelect(null);
+            }
+        }
         time -= Time.deltaTime;
         if (time <= 0)
         {

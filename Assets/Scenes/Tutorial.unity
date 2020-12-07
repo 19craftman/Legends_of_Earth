@@ -280,8 +280,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83977848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -183.94382, y: -19.205769, z: -4676.5376}
-  m_LocalScale: {x: 33.968357, y: 33.968357, z: 33.968357}
+  m_LocalPosition: {x: -183.94382, y: -19.2, z: -4676.5}
+  m_LocalScale: {x: 20.15127, y: 20.15127, z: 20.15127}
   m_Children: []
   m_Father: {fileID: 120120835}
   m_RootOrder: 0
@@ -325,7 +325,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5f6ad4e1cc3a5bf498284b39c5183f67, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b06122878bfa5da41b768a539c6fff8d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1851,9 +1851,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "-Once characters have been selected, each player will be given three random
-    modifiers to choose from. \n-Once each player has chosen a modifier, one of the
-    chosen modifiers will be picked at random to become active in the next minigame."
+  m_text: "-Choose between a random selection of modifiers \n-One of the choosen
+    modifiers is then chosen for the next minigame."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1880,7 +1879,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.35
+  m_fontSize: 32.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2186,7 +2185,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &357651367
 MonoBehaviour:
@@ -2210,8 +2209,7 @@ MonoBehaviour:
   m_text: < Lasers >
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c467ca5657444045b3055d92b6e300c, type: 2}
-  m_sharedMaterial: {fileID: -6329728983791056123, guid: 5c467ca5657444045b3055d92b6e300c,
-    type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: c87c2ee45433eec46a39cfb698b2c966, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2235,7 +2233,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.9
+  m_fontSize: 51.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2325,8 +2323,7 @@ MonoBehaviour:
   m_text: < Icy Floors >
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c467ca5657444045b3055d92b6e300c, type: 2}
-  m_sharedMaterial: {fileID: -6329728983791056123, guid: 5c467ca5657444045b3055d92b6e300c,
-    type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: c87c2ee45433eec46a39cfb698b2c966, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2350,7 +2347,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.6
+  m_fontSize: 38.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2417,7 +2414,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &499986088
 GameObject:
@@ -2489,7 +2486,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -2
-  m_Sprite: {fileID: 21300000, guid: 0f9b3f96d8e5c4b109add05884c20f9a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8b1b2c003dc05154d873b93c25901aa6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2938,10 +2935,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- "X" button to jump
 
-    - "Left Joystick to move left and right
+    - "Left Joystick" to move left and right
 
     -
-    "Options" button to pause the game (only available from in minigames'
+    "Options" button to pause the game (only available in minigames)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4330,7 +4327,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Welcome to Legends of Earth, a 2-4 player minigame where players fight
+  m_text: 'Welcome to Legends of Earth, a fast paced party game where players fight
     to be crowned the Player of the Universe
 
 '
@@ -4360,7 +4357,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.1
+  m_fontSize: 34.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5588,11 +5585,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "-At the bottom of the screen, each player has a bar that correlates to
-    their character's color, this is their Time Discrepancy Bar. \n-As each player
-    moves, their bar decreases. If a player's bar hits empty, they die. \n-By standing
-    still and hitting \u201CSquare,\u201D a player can recharge their bar (though
-    be unable to move).\r\n"
+  m_text: "-Match the player's circle color to the bar at the bottom of the screen\n-As
+    a player moves, their bar decreases. If a player's bar hits empty, they die.
+    \n-By standing still and hitting \u201CSquare,\u201D a player can recharge their
+    bar (though be unable to move).\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5619,7 +5615,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.75
+  m_fontSize: 22.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5695,7 +5691,7 @@ Transform:
   m_GameObject: {fileID: 1223931705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -194, y: -48, z: -4676.5}
-  m_LocalScale: {x: 21, y: 21, z: 21}
+  m_LocalScale: {x: 16.346699, y: 16.346699, z: 16.346699}
   m_Children: []
   m_Father: {fileID: 751112593}
   m_RootOrder: 0
@@ -5739,7 +5735,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 38350172a6aa392408744abb3941908a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a54d609e8fbe0248bf06a097851eea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5950,8 +5946,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326725973}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -183.94382, y: -19.205769, z: -4676.5376}
-  m_LocalScale: {x: 33.968357, y: 33.968357, z: 33.968357}
+  m_LocalPosition: {x: -183.9, y: -19.2, z: -4676.5}
+  m_LocalScale: {x: 19.090136, y: 19.090136, z: 19.090136}
   m_Children: []
   m_Father: {fileID: 91257243}
   m_RootOrder: 0
@@ -5995,7 +5991,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 09978335a23948b4bb90f35879214e15, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0e6c4a7ba15c4146b51ec7b40e5759c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6175,7 +6171,7 @@ Transform:
   m_GameObject: {fileID: 1443722440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -183.94382, y: -19.2, z: -4676.5}
-  m_LocalScale: {x: 26.602776, y: 26.602776, z: 26.602776}
+  m_LocalScale: {x: 19.643103, y: 19.643103, z: 19.643103}
   m_Children: []
   m_Father: {fileID: 720071385}
   m_RootOrder: 1
@@ -6219,7 +6215,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7d306e489837f1b41ae8538baf1cfe29, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8933f1a88bbb5a7409ce4db7804709b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7949,7 +7945,7 @@ GameObject:
   - component: {fileID: 2028221279}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: Slider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -58,6 +58,8 @@ public class FollowLead : MonoBehaviour
         }
         if (count == players.Length)
         {
+            GameObject PPanel = GameObject.FindGameObjectWithTag("PMenu");
+            Destroy(PPanel.GetComponent<PauseMenu>());
             winScreen.SetActive(true);
             // restartgame.enabled = true;
             Debug.Log(first + players[first].GetComponent<PlayerInput>().character);
