@@ -48,7 +48,7 @@ public class LazerFiring : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(speed);
+        //Debug.Log(speed);
         speed = 5 - (diffiulty / 2);
 
         count = Mathf.Round(1 + (diffiulty / 2));

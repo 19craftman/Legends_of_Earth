@@ -923,7 +923,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2119645465}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23683332, y: 0.36551854}
   m_AnchorMax: {x: 0.7563542, y: 0.60451853}
@@ -1083,7 +1083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: Next
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c467ca5657444045b3055d92b6e300c, type: 2}
   m_sharedMaterial: {fileID: -6329728983791056123, guid: 5c467ca5657444045b3055d92b6e300c,
@@ -6184,7 +6184,7 @@ PrefabInstance:
     - target: {fileID: 517685141057668743, guid: 564d1cafae9e5f441bb490c39faef90c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 517685141057668743, guid: 564d1cafae9e5f441bb490c39faef90c,
         type: 3}
@@ -7159,7 +7159,7 @@ PrefabInstance:
     - target: {fileID: 7700933359690216961, guid: 2640173f6cba7c140a3191b8c50d65f4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7700933359690216961, guid: 2640173f6cba7c140a3191b8c50d65f4,
         type: 3}
@@ -26213,7 +26213,7 @@ RectTransform:
   - {fileID: 1236139393}
   - {fileID: 1404856308}
   m_Father: {fileID: 2119645465}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -26373,7 +26373,7 @@ RectTransform:
   - {fileID: 512555830}
   - {fileID: 137754565}
   m_Father: {fileID: 2119645465}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -26508,11 +26508,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2009968468}
-  - {fileID: 2059461014}
-  - {fileID: 2050069857}
   - {fileID: 351378992}
   - {fileID: 825778950}
   - {fileID: 722748062}
+  - {fileID: 2059461014}
+  - {fileID: 2050069857}
   - {fileID: 70058860}
   m_Father: {fileID: 0}
   m_RootOrder: 3

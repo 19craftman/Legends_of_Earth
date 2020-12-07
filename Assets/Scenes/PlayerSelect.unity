@@ -971,10 +971,10 @@ RectTransform:
   m_Father: {fileID: 1020574361}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.3}
-  m_AnchorMax: {x: 0.25074998, y: 1}
-  m_AnchoredPosition: {x: 1.5, y: -1.5}
-  m_SizeDelta: {x: 1.000061, y: 3.000122}
+  m_AnchorMin: {x: 0.012, y: 0.26900002}
+  m_AnchorMax: {x: 0.26241267, y: 0.97300005}
+  m_AnchoredPosition: {x: -1, y: 0.9700012}
+  m_SizeDelta: {x: 1.000061, y: 1.0001221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &504641761
 BoxCollider2D:
@@ -989,7 +989,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.5699539, y: -7.861389}
+  m_Offset: {x: 1.5699539, y: 3.022095}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1021,7 +1021,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fde6ba08367b2514e91aabe5fec1b13a, type: 3}
+  m_Sprite: {fileID: -240412859360823426, guid: 15723fa27331f485181ab62479507f1e,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1153,10 +1154,10 @@ RectTransform:
   m_Father: {fileID: 1020574361}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.25074998, y: 0.3}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -4.000122, y: -1.5}
-  m_SizeDelta: {x: 6.000061, y: 3.000122}
+  m_AnchorMin: {x: 0.2494952, y: 0.26900002}
+  m_AnchorMax: {x: 0.50649524, y: 0.975}
+  m_AnchoredPosition: {x: 0.5, y: 0.47000122}
+  m_SizeDelta: {x: -0.99993896, y: 0.00012207031}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &589312049
 BoxCollider2D:
@@ -1171,7 +1172,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.5699539, y: -7.861389}
+  m_Offset: {x: 1.5699539, y: 3.022095}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1203,7 +1204,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ee71480bb64694e258af53218b9288c9, type: 3}
+  m_Sprite: {fileID: 867194523712916225, guid: 36cc14c11b2244413bb5885080b5694d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1512,10 +1513,10 @@ RectTransform:
   m_Father: {fileID: 1020574361}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.3}
-  m_AnchorMax: {x: 0.74950016, y: 1}
-  m_AnchoredPosition: {x: 1.499939, y: -1.5}
-  m_SizeDelta: {x: 5.000061, y: 3.000122}
+  m_AnchorMin: {x: 0.4967524, y: 0.26900002}
+  m_AnchorMax: {x: 0.75166523, y: 0.975}
+  m_AnchoredPosition: {x: 0.5, y: 0.3919983}
+  m_SizeDelta: {x: 0.000061035156, y: 0.00012207031}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &788361681
 BoxCollider2D:
@@ -1530,7 +1531,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.5699539, y: -7.861389}
+  m_Offset: {x: 1.5699539, y: 3.022095}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1562,7 +1563,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f9868bcbabe2d7a4d995e12091bbcdba, type: 3}
+  m_Sprite: {fileID: 3982797145344114222, guid: 52174fa6de7184b15a991c70815477e6,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
