@@ -31,7 +31,7 @@ public class PlayerSelecting : MonoBehaviour
     private static int playernumber = 0;
     public TextMeshProUGUI[] playermenu;
 
-    
+    private Camera theCamera;
 
     
     
@@ -39,6 +39,7 @@ public class PlayerSelecting : MonoBehaviour
   
     void Start()
     {
+        theCamera = FindObjectOfType<Camera>();
         players.Clear();
         playersScoring.Clear();
         for (int i = 0; i < PlayerDot.Length; i++)
@@ -164,6 +165,18 @@ public class PlayerSelecting : MonoBehaviour
             float verticleInput = ReInput.players.GetPlayer(i).GetAxis("Verticle");
             float xSpeed = PlayerDot[i].GetComponent<Rigidbody2D>().velocity.x;
             float ySpeed = PlayerDot[i].GetComponent<Rigidbody2D>().velocity.y;
+
+
+            var leftCorner = theCamera.ScreenToWorldPoint(Vector3.zero);
+
+            var rightCorner = theCamera.ScreenToWorldPoint(new Vector3(theCamera.pixelWidth, theCamera.pixelHeight));
+            var newWidth = rightCorner.x - leftCorner.x;
+            var newHieght = rightCorner.y - leftCorner.y;
+            var cameraRect = new Rect(leftCorner.x, leftCorner.y, newWidth, newHieght);
+
+
+
+
             if (horizontalInput != 0)
             {
                 xSpeed = horizontalInput * speed;
@@ -186,6 +199,7 @@ public class PlayerSelecting : MonoBehaviour
 
 
             PlayerDot[i].GetComponent<Rigidbody2D>().velocity = new Vector2(xSpeed, ySpeed);
+            PlayerDot[i].transform.position = new Vector3(Mathf.Clamp(PlayerDot[i].transform.position.x, cameraRect.xMin, cameraRect.xMax), Mathf.Clamp(PlayerDot[i].transform.position.y, cameraRect.yMin, cameraRect.yMax), PlayerDot[i].transform.position.z);
             //Debug.Log(PlayerDot[i].GetComponent<Rigidbody2D>().velocity);
 
         }

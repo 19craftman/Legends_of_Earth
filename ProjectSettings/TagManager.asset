@@ -18,6 +18,7 @@ TagManager:
   - P3Death
   - ICON
   - P4Death
+  - Slider
   layers:
   - Default
   - TransparentFX
